@@ -1,21 +1,445 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Abdul Hafiz Muzyin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdulhafiz Muzyin | Engineering Student</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 100px auto;
-            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
             text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .contact-links {
+            margin-top: 20px;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .contact-links a:hover {
+            border-bottom-color: white;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .education-item, .experience-item, .project-item, .research-item {
+            margin-bottom: 30px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .item-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .item-date {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .item-subtitle {
+            color: #555;
+            font-size: 1.05em;
+            margin-bottom: 10px;
+        }
+
+        .item-description {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .item-description li {
+            margin-bottom: 8px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .skill-category p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .honors-list {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .honors-list li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tech-tag {
+            background: #e8eaf6;
+            color: #667eea;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #2c3e50;
+            color: white;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header p {
+                font-size: 1.1em;
+            }
+
+            section {
+                padding: 25px;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .item-date {
+                margin-top: 5px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Abdul Hafiz Muzyin</h1>
-    <p>Computer Science Student<br>Georgia State University</p>
-    <p>📧 your.email@example.com</p>
-    <p><em>Portfolio coming soon</em></p>
+    <header>
+        <h1>Abdulhafiz Muzyin</h1>
+        <p>Engineering Student | Computer Science | FPGA Research</p>
+        <div class="contact-links">
+            <a href="mailto:amuzyin1@gsu.edu">Email</a>
+            <a href="tel:+14707914716">+1-470-791-4716</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I'm an engineering student at Georgia State University Perimeter College with a 3.96 GPA, passionate about computer architecture, machine learning acceleration, and building impactful technology. My work spans FPGA research, full-stack development, and educational outreach.</p>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-item">
+                <div class="item-header">
+                    <span class="item-title">Georgia State University Perimeter College</span>
+                    <span class="item-date">Jan. 2024 – May 2026</span>
+                </div>
+                <div class="item-subtitle">Associate of Science in Engineering | GPA: 3.96/4.0</div>
+                <p><strong>Relevant Coursework:</strong> Computing Fundamentals (MATLAB), Computer Science I (Python), Engineering Graphics and Design, Calculus I & II, Multivariate Calculus, Differential Equations, Chemistry I</p>
+                
+                <div class="honors-list">
+                    <strong>Honors & Awards:</strong>
+                    <ul>
+                        <li>Dean Award Nominee (2024)</li>
+                        <li>Phi Theta Kappa (PTK) Honor Society</li>
+                        <li>President's List (Four Semesters)</li>
+                        <li>Annual Coding Competition Winner (2024)</li>
+                        <li>Annual Boat Regatta Competition (2nd Place)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <p>Python, MATLAB, TypeScript, C, SystemVerilog, Assembly</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks</h3>
+                    <p>React.js, Node.js, FastAPI, Canvas API, JUnit, Flask</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Developer Tools</h3>
+                    <p>Git, GitHub, Docker, Cloudflare, Jupyter Notebook, VS Code</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Libraries</h3>
+                    <p>Pandas, NumPy, Matplotlib, XGBoost</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="research">
+            <h2>Research Experience</h2>
+            
+            <div class="research-item">
+                <div class="item-header">
+                    <span class="item-title">Mixed-Precision Matrix Multiplication Acceleration on FPGA</span>
+                    <span class="item-date">Aug. 2025 – Present</span>
+                </div>
+                <div class="item-subtitle">Under Supervision of Dr. Andrew Kim | Georgia State University</div>
+                <ul class="item-description">
+                    <li>Researching FPGA acceleration for matrix multiplication, a critical kernel in large-scale machine learning and scientific computing workloads on an AMD Spartan-7 FPGA</li>
+                    <li>Exploring mixed-precision matrix operations by leveraging lower-precision arithmetic to increase throughput while maintaining high accuracy</li>
+                </ul>
+            </div>
+
+            <div class="research-item">
+                <div class="item-header">
+                    <span class="item-title">Data-Driven Evaluation of Campus Study Space Quality</span>
+                    <span class="item-date">May 2025 – Nov. 2025</span>
+                </div>
+                <div class="item-subtitle">Under Supervision of Dr. John Weber | Georgia State University</div>
+                <ul class="item-description">
+                    <li>Designed and implemented a grid-based data collection system to measure illuminance and sound levels across multiple campus study spaces</li>
+                    <li>Collected and analyzed 300+ data points using multivariable calculus and contour plots to visualize spatial trends and recommend optimal study locations</li>
+                </ul>
+            </div>
+
+            <div class="research-item">
+                <div class="item-header">
+                    <span class="item-title">Indoor Navigation Systems for Multi-Floor Campus Buildings</span>
+                    <span class="item-date">May 2025 – Nov. 2025</span>
+                </div>
+                <div class="item-subtitle">Honors College Research Showcase | Georgia State University</div>
+                <ul class="item-description">
+                    <li>Conducted research on improving indoor navigation within campus buildings using digital floor plans and spatial layout data</li>
+                    <li>Investigated algorithms for real-time positioning and path optimization; presented findings at the Honors Research Showcase</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            
+            <div class="project-item">
+                <div class="item-header">
+                    <span class="item-title">Medlo Digital Medical Record System</span>
+                    <span class="item-date">Jun. 2025 – Present</span>
+                </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">BetterAuth</span>
+                    <span class="tech-tag">FastAPI</span>
+                </div>
+                <ul class="item-description">
+                    <li>Built the backend for a full-stack medical record platform piloted in eight medical institutions in Ethiopia</li>
+                    <li>Implemented authentication with BetterAuth in TypeScript to verify users via FAYDA (Ethiopia's national ID system)</li>
+                    <li>Developed RESTful API endpoints with FastAPI for database-backed workflows</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="item-header">
+                    <span class="item-title">Fabric Fingerprint</span>
+                    <span class="item-date">Sep. 2025 – Nov. 2025</span>
+                </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">BetterAuth</span>
+                </div>
+                <ul class="item-description">
+                    <li>Worked with a team of four to develop an AI-powered sourcing platform connecting designers with verified, sustainable fabric suppliers</li>
+                    <li>Built functional demo showcasing AI fabric matching, supplier verification, and automatic language translation; owned backend development and authentication</li>
+                    <li>Presented at the November 2025 Perimeter College Innovation Challenge Finals</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="item-header">
+                    <span class="item-title">RISC-V 32-bit Pipelined Processor Design</span>
+                    <span class="item-date">Mar. 2025 – May 2025</span>
+                </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">SystemVerilog</span>
+                    <span class="tech-tag">Assembly</span>
+                    <span class="tech-tag">RISC-V ISA</span>
+                </div>
+                <ul class="item-description">
+                    <li>Implemented a 32-bit RISC-V processor with five-stage pipelined datapath (fetch, decode, execute, memory, writeback)</li>
+                    <li>Integrated hazard detection, forwarding logic, and two-way set-associative cache with LRU replacement policy</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">STEM Tutor</span>
+                    <span class="item-date">Jun. 2024 – Present</span>
+                </div>
+                <div class="item-subtitle">Georgia State University Perimeter College – Learning and Tutoring Center</div>
+                <ul class="item-description">
+                    <li>Provided 220+ hours of tutoring in mathematics, computer science, and engineering courses</li>
+                    <li>Organized and led group study sessions during midterm and final exam seasons</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">Supplemental Instructor</span>
+                    <span class="item-date">Jun. 2024 – Present</span>
+                </div>
+                <div class="item-subtitle">Georgia State University Perimeter College</div>
+                <ul class="item-description">
+                    <li>Collaborated with two instructors to improve student success in Calculus I (MATH 2211) and Precalculus (MATH 1113)</li>
+                    <li>Delivered 150+ hours of office hours, assignment support, and review sessions</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">Co-President – Clarkston Math Club</span>
+                    <span class="item-date">Aug. 2024 – Present</span>
+                </div>
+                <div class="item-subtitle">Georgia State University Perimeter College</div>
+                <ul class="item-description">
+                    <li>Led executive meetings to plan events, coordinate logistics, and manage club budget</li>
+                    <li>Organized math events, transfer panels featuring MIT and Georgia Tech alumni, and coding competitions</li>
+                    <li>Increased active membership by 25% in one year</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">Event Organizer – Clarkston Computing and Engineering Club</span>
+                    <span class="item-date">Jan. 2024 – Present</span>
+                </div>
+                <div class="item-subtitle">Georgia State University Perimeter College</div>
+                <ul class="item-description">
+                    <li>Planned events including the Annual Boat Regatta, robotics workshops, and coding challenges</li>
+                    <li>Contributed to the club earning "Best Student Organization of the Year" in 2024</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="volunteering">
+            <h2>Volunteering</h2>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">MESA Peer Tutor</span>
+                    <span class="item-date">Aug. 2025 – Present</span>
+                </div>
+                <div class="item-subtitle">Math Engineering Science Achievement (MESA) Center, GSU Perimeter College</div>
+                <ul class="item-description">
+                    <li>Completed 120+ volunteer hours supporting STEM students with academic assistance</li>
+                    <li>Fostered collaborative learning environments through group study and review sessions</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">Egna Le Egna Foundation – Co-Founder</span>
+                    <span class="item-date">Mar. 2023 – Present</span>
+                </div>
+                <div class="item-subtitle">Non-Profit Organization | Addis Ababa, Ethiopia</div>
+                <ul class="item-description">
+                    <li>Raised $2800+ through GoFundMe and local bank donations; renovated four classrooms at Wesherbe Elementary School</li>
+                    <li>Delivered academic textbooks to Wesherbe High School (160) and Holeta High School (112) for the 2025–26 academic year</li>
+                    <li>Led clothing drives supporting children affected by the civil war in northern Ethiopia</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Abdulhafiz Muzyin. All rights reserved.</p>
+    </footer>
 </body>
 </html>
