@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdulhafiz Muzyin | Engineering Student</title>
+    <title>Abdulhafiz Muzyin</title>
     <style>
         * {
             margin: 0;
@@ -12,14 +12,14 @@
         }
 
         :root {
-            --navy-primary: #0f172a;
-            --navy-secondary: #1e293b;
-            --navy-light: #334155;
-            --accent-blue: #3b82f6;
-            --light-blue: #dbeafe;
-            --text-white: #ffffff;
-            --text-light: #94a3b8;
-            --bg-light: #f8fafc;
+            --emerald-primary: #10b981;
+            --emerald-dark: #059669;
+            --emerald-light: #d1fae5;
+            --emerald-very-dark: #064e3b;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-white: #ffffff;
+            --bg-light: #f9fafb;
         }
 
         html {
@@ -29,8 +29,8 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: var(--navy-primary);
-            background: var(--bg-light);
+            color: var(--text-dark);
+            background: var(--bg-white);
         }
 
         /* Navigation */
@@ -57,7 +57,7 @@
         .logo {
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--navy-primary);
+            color: var(--text-dark);
         }
 
         .nav-links {
@@ -67,7 +67,7 @@
         }
 
         .nav-links a {
-            color: var(--navy-primary);
+            color: var(--text-dark);
             text-decoration: none;
             font-weight: 500;
             font-size: 0.95rem;
@@ -75,7 +75,13 @@
         }
 
         .nav-links a:hover {
-            color: var(--accent-blue);
+            color: var(--emerald-primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* Hero Section */
@@ -84,40 +90,77 @@
             display: flex;
             align-items: center;
             padding: 8rem 2rem 4rem;
-            background: var(--bg-light);
+            background: var(--bg-white);
         }
 
         .hero-container {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
         }
 
         .hero-content h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            color: var(--navy-primary);
+            color: var(--text-dark);
             margin-bottom: 1.5rem;
             line-height: 1.2;
         }
 
-        .hero-content h1 span {
-            color: var(--accent-blue);
-        }
-
         .hero-content p {
             font-size: 1.2rem;
-            color: var(--navy-light);
+            color: var(--text-light);
             margin-bottom: 2.5rem;
             line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--emerald-light);
+            color: var(--emerald-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--emerald-primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.2);
         }
 
         .hero-buttons {
             display: flex;
             gap: 1rem;
+            margin-top: 2rem;
             flex-wrap: wrap;
         }
 
@@ -132,72 +175,26 @@
         }
 
         .btn-primary {
-            background: var(--accent-blue);
+            background: var(--emerald-primary);
             color: white;
-            border: 2px solid var(--accent-blue);
+            border: 2px solid var(--emerald-primary);
         }
 
         .btn-primary:hover {
-            background: #2563eb;
+            background: var(--emerald-dark);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--navy-primary);
-            border: 2px solid var(--navy-primary);
+            color: var(--text-dark);
+            border: 2px solid var(--text-dark);
         }
 
         .btn-secondary:hover {
-            background: var(--navy-primary);
+            background: var(--text-dark);
             color: white;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--light-blue);
-            color: var(--accent-blue);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background: var(--accent-blue);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-image-placeholder {
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-secondary) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 8rem;
-            font-weight: 700;
-            box-shadow: 0 20px 60px rgba(15, 23, 42, 0.3);
         }
 
         /* Section Styling */
@@ -218,100 +215,39 @@
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--navy-primary);
+            color: var(--text-dark);
             margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            color: var(--navy-light);
-            font-size: 1.1rem;
-        }
-
-        /* Education */
-        #education {
-            background: white;
-        }
-
-        .education-content {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--bg-light);
-            padding: 3rem;
-            border-radius: 16px;
-            border-left: 5px solid var(--accent-blue);
-        }
-
-        .education-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .education-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--navy-primary);
-        }
-
-        .education-date {
-            color: var(--accent-blue);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .education-subtitle {
-            font-size: 1.1rem;
-            color: var(--navy-light);
-            margin-bottom: 1.5rem;
-        }
-
-        .gpa-highlight {
-            display: inline-block;
-            background: var(--accent-blue);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 25px;
-            font-weight: 600;
-            margin: 1rem 0;
-        }
-
-        .coursework {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 1.5rem 0;
-        }
-
-        .coursework-title {
-            font-weight: 700;
-            color: var(--navy-primary);
-            margin-bottom: 0.75rem;
-        }
-
-        .honors-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .honor-badge {
-            background: white;
-            padding: 1rem;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--navy-primary);
-            font-weight: 500;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         /* Projects Section */
         #projects {
             background: var(--bg-light);
+        }
+
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            border: 2px solid var(--emerald-primary);
+            background: transparent;
+            color: var(--emerald-primary);
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--emerald-primary);
+            color: white;
         }
 
         .projects-grid {
@@ -331,17 +267,24 @@
 
         .project-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.2);
         }
 
         .project-image {
-            height: 200px;
-            background: linear-gradient(135deg, var(--navy-primary) 0%, var(--accent-blue) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
         }
 
         .project-content {
@@ -351,19 +294,19 @@
         .project-title {
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--navy-primary);
+            color: var(--text-dark);
             margin-bottom: 0.5rem;
         }
 
         .project-date {
-            color: var(--accent-blue);
+            color: var(--emerald-primary);
             font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 1rem;
         }
 
         .project-description {
-            color: var(--navy-light);
+            color: var(--text-light);
             line-height: 1.7;
             margin-bottom: 1.5rem;
         }
@@ -375,183 +318,144 @@
         }
 
         .tech-tag {
-            background: var(--light-blue);
-            color: var(--accent-blue);
+            background: var(--emerald-light);
+            color: var(--emerald-primary);
             padding: 0.4rem 0.9rem;
             border-radius: 15px;
             font-size: 0.85rem;
             font-weight: 600;
         }
 
-        /* Research Section */
-        #research {
-            background: white;
-        }
-
-        .research-grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .research-card {
-            background: var(--bg-light);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border-left: 5px solid var(--accent-blue);
-        }
-
-        .research-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .research-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--navy-primary);
-        }
-
-        .research-date {
-            color: var(--accent-blue);
-            font-weight: 600;
-        }
-
-        .research-subtitle {
-            color: var(--navy-light);
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .research-description ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .research-description li {
-            padding-left: 1.5rem;
-            position: relative;
-            margin-bottom: 0.75rem;
-            color: var(--navy-light);
-            line-height: 1.7;
-        }
-
-        .research-description li::before {
-            content: '▸';
-            position: absolute;
+        /* Project Modal */
+        .project-modal {
+            display: none;
+            position: fixed;
+            top: 0;
             left: 0;
-            color: var(--accent-blue);
-            font-weight: 700;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            overflow-y: auto;
         }
 
-        /* Experience Section */
-        #experience {
-            background: var(--bg-light);
-        }
-
-        .experience-grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .experience-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-        }
-
-        .experience-header {
+        .project-modal.active {
             display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
         }
 
-        .experience-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--navy-primary);
-        }
-
-        .experience-date {
-            color: var(--accent-blue);
-            font-weight: 600;
-        }
-
-        .experience-subtitle {
-            color: var(--navy-light);
-            margin-bottom: 1rem;
-        }
-
-        .experience-description ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .experience-description li {
-            padding-left: 1.5rem;
-            position: relative;
-            margin-bottom: 0.75rem;
-            color: var(--navy-light);
-            line-height: 1.7;
-        }
-
-        .experience-description li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--accent-blue);
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        /* Volunteering Section */
-        #volunteering {
+        .modal-content {
             background: white;
-        }
-
-        .volunteering-highlight {
-            background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-secondary) 100%);
-            color: white;
-            padding: 3rem;
             border-radius: 16px;
-            margin-top: 2rem;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
         }
 
-        .volunteering-highlight h3 {
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--emerald-primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            background: var(--emerald-dark);
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            padding: 2rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .modal-title {
             font-size: 2rem;
-            margin-bottom: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
         }
 
-        .impact-stats {
+        .modal-date {
+            color: var(--emerald-primary);
+            font-weight: 600;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-description {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .modal-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
             margin-top: 2rem;
         }
 
-        .impact-stat {
+        .modal-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .modal-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Resume Section */
+        #resume {
+            background: var(--bg-white);
+            padding: 5rem 2rem;
+        }
+
+        .resume-content {
+            max-width: 900px;
+            margin: 0 auto;
             text-align: center;
-            padding: 1.5rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 12px;
         }
 
-        .impact-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent-blue);
+        .resume-download {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            background: var(--emerald-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
         }
 
-        .impact-label {
-            margin-top: 0.5rem;
-            opacity: 0.9;
+        .resume-download:hover {
+            background: var(--emerald-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
         }
 
         /* Contact Section */
@@ -563,65 +467,79 @@
         .contact-content {
             max-width: 700px;
             margin: 0 auto;
-            text-align: center;
         }
 
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin: 2rem 0;
+        .contact-form {
+            margin-top: 2rem;
         }
 
-        .contact-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-            color: var(--navy-primary);
-            transition: all 0.3s;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        .form-group {
+            margin-bottom: 1.5rem;
         }
 
-        .contact-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--light-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--accent-blue);
-        }
-
-        .contact-details {
-            text-align: left;
-            flex: 1;
-        }
-
-        .contact-label {
-            font-size: 0.85rem;
-            color: var(--navy-light);
-            margin-bottom: 0.25rem;
-        }
-
-        .contact-value {
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
             font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--emerald-primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .char-count {
+            text-align: right;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        .form-group.required label::after {
+            content: ' *';
+            color: var(--emerald-primary);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--emerald-primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
             font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--emerald-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
         }
 
         /* Footer */
         footer {
-            background: var(--navy-primary);
+            background: var(--text-dark);
             color: white;
             padding: 2rem;
             text-align: center;
@@ -646,14 +564,17 @@
                 justify-content: center;
             }
 
-            .hero-image-placeholder {
+            .hero-image img {
                 width: 300px;
                 height: 300px;
-                font-size: 6rem;
             }
 
             .nav-links {
                 display: none;
+            }
+
+            .menu-toggle {
+                display: block;
             }
 
             .projects-grid {
@@ -670,8 +591,12 @@
                 font-size: 2rem;
             }
 
-            .education-content {
-                padding: 2rem;
+            .modal-content {
+                margin: 1rem;
+            }
+
+            .modal-gallery {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -683,11 +608,11 @@
             <div class="logo">Abdulhafiz Muzyin</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#projects">My Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact Me</a></li>
             </ul>
+            <div class="menu-toggle">☰</div>
         </div>
     </nav>
 
@@ -695,107 +620,20 @@
     <section class="hero" id="home">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Hi, I'm <span>Abdulhafiz!</span></h1>
+                <h1>Hi, I'm Abdulhafiz!</h1>
                 <p>I'm an engineering student at Georgia State University passionate about computer architecture, FPGA acceleration, and building technology that makes a real impact. My interests span machine learning hardware, full-stack development, and STEM education.</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Contact Me</a>
                     <a href="#projects" class="btn btn-secondary">See My Projects</a>
                 </div>
                 <div class="social-links">
-                    <a href="mailto:amuzyin1@gsu.edu" title="Email">📧</a>
-                    <a href="tel:+14707914716" title="Phone">📱</a>
-                    <a href="https://github.com/abdulhafizmuzyin" title="GitHub">💻</a>
+                    <a href="https://linkedin.com" title="LinkedIn">in</a>
+                    <a href="https://instagram.com" title="Instagram">ig</a>
+                    <a href="https://github.com/abdulhafizmuzyin" title="GitHub">gh</a>
                 </div>
             </div>
             <div class="hero-image">
-                <div class="hero-image-placeholder">AM</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education -->
-    <section id="education">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Education</h2>
-                <p class="section-subtitle">Academic excellence and continuous learning</p>
-            </div>
-            <div class="education-content">
-                <div class="education-header">
-                    <div>
-                        <div class="education-title">Georgia State University Perimeter College</div>
-                        <div class="education-subtitle">Associate of Science in Engineering</div>
-                    </div>
-                    <div class="education-date">Jan 2024 – May 2026</div>
-                </div>
-                <span class="gpa-highlight">GPA: 3.96/4.0</span>
-                
-                <div class="coursework">
-                    <div class="coursework-title">Relevant Coursework</div>
-                    <p style="color: var(--navy-light);">Computing Fundamentals (MATLAB), Computer Science I (Python), Engineering Graphics and Design, Calculus I & II, Multivariate Calculus, Differential Equations, Chemistry I</p>
-                </div>
-
-                <div class="coursework-title" style="margin-top: 1.5rem;">Honors & Awards</div>
-                <div class="honors-grid">
-                    <div class="honor-badge">🏆 Dean Award Nominee</div>
-                    <div class="honor-badge">🎓 Phi Theta Kappa</div>
-                    <div class="honor-badge">⭐ President's List (4 semesters)</div>
-                    <div class="honor-badge">💻 Coding Competition Winner</div>
-                    <div class="honor-badge">🚣 Boat Regatta 2nd Place</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research -->
-    <section id="research">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Research Experience</h2>
-                <p class="section-subtitle">Advancing knowledge through innovative research</p>
-            </div>
-            <div class="research-grid">
-                <div class="research-card">
-                    <div class="research-header">
-                        <div class="research-title">Mixed-Precision Matrix Multiplication on FPGA</div>
-                        <div class="research-date">Aug 2025 – Present</div>
-                    </div>
-                    <div class="research-subtitle">Under Dr. Andrew Kim | Georgia State University</div>
-                    <div class="research-description">
-                        <ul>
-                            <li>Researching FPGA acceleration for matrix multiplication on AMD Spartan-7 FPGA for large-scale machine learning workloads</li>
-                            <li>Exploring mixed-precision operations to increase throughput while maintaining accuracy</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="research-card">
-                    <div class="research-header">
-                        <div class="research-title">Data-Driven Study Space Quality Evaluation</div>
-                        <div class="research-date">May 2025 – Nov 2025</div>
-                    </div>
-                    <div class="research-subtitle">Under Dr. John Weber | Georgia State University</div>
-                    <div class="research-description">
-                        <ul>
-                            <li>Designed grid-based data collection system measuring illuminance and sound levels across campus</li>
-                            <li>Analyzed 300+ data points using multivariable calculus and contour plots</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="research-card">
-                    <div class="research-header">
-                        <div class="research-title">Indoor Navigation Systems for Campus Buildings</div>
-                        <div class="research-date">May 2025 – Nov 2025</div>
-                    </div>
-                    <div class="research-subtitle">Honors Research Showcase | Georgia State University</div>
-                    <div class="research-description">
-                        <ul>
-                            <li>Investigated algorithms for real-time positioning and path optimization</li>
-                            <li>Presented findings at the Honors Research Showcase</li>
-                        </ul>
-                    </div>
-                </div>
+                <img src="Personal_Picture.jpeg" alt="Abdulhafiz Muzyin">
             </div>
         </div>
     </section>
@@ -805,13 +643,20 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">My Projects</h2>
-                <p class="section-subtitle">Building solutions that make a difference</p>
+            </div>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="mechanical">Mechanical</button>
+                <button class="filter-btn" data-filter="electrical">Electrical</button>
+                <button class="filter-btn" data-filter="software">Software</button>
             </div>
             <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">🏥</div>
+                <div class="project-card" data-category="software" data-project="medlo">
+                    <div class="project-image">
+                        <img src="Medlo_Logo.jpeg" alt="Medlo Project">
+                    </div>
                     <div class="project-content">
-                        <div class="project-title">Medlo Digital Medical Record System</div>
+                        <div class="project-title">Medlo</div>
                         <div class="project-date">Jun 2025 – Present</div>
                         <div class="project-description">
                             Built backend for full-stack medical record platform piloted in eight Ethiopian medical institutions. Implemented authentication via FAYDA (Ethiopia's national ID) and developed RESTful APIs with FastAPI.
@@ -824,124 +669,40 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="project-card">
-                    <div class="project-image">🎨</div>
-                    <div class="project-content">
-                        <div class="project-title">Fabric Fingerprint</div>
-                        <div class="project-date">Sep 2025 – Nov 2025</div>
-                        <div class="project-description">
-                            AI-powered sourcing platform connecting designers with sustainable fabric suppliers. Built functional demo with AI matching, supplier verification, and language translation. Finalist at Innovation Challenge.
                         </div>
-                        <div class="tech-tags">
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">BetterAuth</span>
                         </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">💻</div>
-                    <div class="project-content">
-                        <div class="project-title">RISC-V 32-bit Pipelined Processor</div>
-                        <div class="project-date">Mar 2025 – May 2025</div>
-                        <div class="project-description">
-                            Implemented 32-bit RISC-V processor with five-stage pipeline. Integrated hazard detection, forwarding logic, and two-way set-associative cache with LRU replacement policy.
-                        </div>
-                        <div class="tech-tags">
-                            <span class="tech-tag">SystemVerilog</span>
-                            <span class="tech-tag">Assembly</span>
-                            <span class="tech-tag">RISC-V ISA</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 
-    <!-- Experience -->
-    <section id="experience">
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Medlo</h2>
+                <div class="modal-date" id="modalDate">Jun 2025 – Present</div>
+                        </div>
+            <div class="modal-body">
+                <p class="modal-description" id="modalDescription">
+                    Built backend for full-stack medical record platform piloted in eight Ethiopian medical institutions. Implemented authentication via FAYDA (Ethiopia's national ID) and developed RESTful APIs with FastAPI.
+                </p>
+                <div class="modal-gallery" id="modalGallery">
+                    <img src="Medlo_1.JPG" alt="Medlo Project Image 1">
+                    <img src="Medlo_2.JPG" alt="Medlo Project Image 2">
+                    <img src="Medlo_3.JPG" alt="Medlo Project Image 3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <!-- Resume -->
+    <section id="resume">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Experience</h2>
-                <p class="section-subtitle">Leadership, teaching, and community impact</p>
-            </div>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-title">STEM Tutor</div>
-                        <div class="experience-date">Jun 2024 – Present</div>
-                    </div>
-                    <div class="experience-subtitle">Georgia State University – Learning and Tutoring Center</div>
-                    <div class="experience-description">
-                        <ul>
-                            <li>Provided 220+ hours of tutoring in mathematics, computer science, and engineering</li>
-                            <li>Organized group study sessions during exam seasons</li>
-                        </ul>
-                    </div>
+            <div class="resume-content">
+                <div class="section-header">
+                    <h2 class="section-title">Resume</h2>
                 </div>
-
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-title">Co-President – Clarkston Math Club</div>
-                        <div class="experience-date">Aug 2024 – Present</div>
-                    </div>
-                    <div class="experience-subtitle">Georgia State University Perimeter College</div>
-                    <div class="experience-description">
-                        <ul>
-                            <li>Organized events including Transfer Panel with MIT/Georgia Tech alumni</li>
-                            <li>Increased active membership by 25% in one year</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-title">Supplemental Instructor</div>
-                        <div class="experience-date">Jun 2024 – Present</div>
-                    </div>
-                    <div class="experience-subtitle">Georgia State University Perimeter College</div>
-                    <div class="experience-description">
-                        <ul>
-                            <li>Delivered 150+ hours of support for Calculus I and Precalculus</li>
-                            <li>Collaborated with instructors to improve student success</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Volunteering -->
-    <section id="volunteering">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Community Service</h2>
-                <p class="section-subtitle">Making a difference beyond the classroom</p>
-            </div>
-            
-            <div class="volunteering-highlight">
-                <h3>Egna Le Egna Foundation – Co-Founder</h3>
-                <p style="margin-bottom: 2rem; opacity: 0.9;">Non-Profit Organization | Addis Ababa, Ethiopia | Mar 2023 – Present</p>
-                <p style="margin-bottom: 2rem;">Leading a non-profit focused on providing educational resources to students in Ethiopia, particularly those affected by civil conflict.</p>
-                
-                <div class="impact-stats">
-                    <div class="impact-stat">
-                        <div class="impact-number">$2,800+</div>
-                        <div class="impact-label">Raised in Donations</div>
-                    </div>
-                    <div class="impact-stat">
-                        <div class="impact-number">4</div>
-                        <div class="impact-label">Classrooms Renovated</div>
-                    </div>
-                    <div class="impact-stat">
-                        <div class="impact-number">272</div>
-                        <div class="impact-label">Textbooks Delivered</div>
-                    </div>
-                </div>
-                
-                <p style="margin-top: 2rem; opacity: 0.9;">Led clothing drives supporting children affected by the civil war in northern Ethiopia.</p>
+                <p style="color: var(--text-light); font-size: 1.1rem; margin-bottom: 1rem;">Download my resume to learn more about my experience and qualifications.</p>
+                <a href="#" class="resume-download" onclick="alert('Resume PDF will be available soon!'); return false;">Download Resume</a>
             </div>
         </div>
     </section>
@@ -950,35 +711,137 @@
     <section id="contact">
         <div class="container">
             <div class="contact-content">
-                <div class="section-header">
-                    <h2 class="section-title">Get In Touch</h2>
-                    <p class="section-subtitle">Let's connect and build something amazing together</p>
+            <div class="section-header">
+                    <h2 class="section-title">Contact Me</h2>
+            </div>
+                <div class="social-links" style="justify-content: center; margin-bottom: 2rem;">
+                    <a href="https://linkedin.com" title="LinkedIn">in</a>
+                    <a href="https://instagram.com" title="Instagram">ig</a>
+                    <a href="https://github.com/abdulhafizmuzyin" title="GitHub">gh</a>
+                    </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group required">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group required">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
                 </div>
-                
-                <div class="contact-info">
-                    <a href="mailto:amuzyin1@gsu.edu" class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div class="contact-details">
-                            <div class="contact-label">Email</div>
-                            <div class="contact-value">amuzyin1@gsu.edu</div>
-                        </div>
-                    </a>
-                    
-                    <a href="tel:+14707914716" class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <div class="contact-details">
-                            <div class="contact-label">Phone</div>
-                            <div class="contact-value">+1 (470) 791-4716</div>
-                        </div>
-                    </a>
-                </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group required">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" maxlength="180" required></textarea>
+                        <div class="char-count"><span id="charCount">0</span> / 180</div>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Abdulhafiz Muzyin. All rights reserved.</p>
+        <p>Copyright © 2026 - Created by <strong>Abdulhafiz Muzyin</strong></p>
     </footer>
+
+    <script>
+        // Project filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Filter projects
+                const filter = btn.getAttribute('data-filter');
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Project modal functionality
+        const modal = document.getElementById('projectModal');
+        const projectCardsWithModal = document.querySelectorAll('.project-card[data-project]');
+
+        projectCardsWithModal.forEach(card => {
+            card.addEventListener('click', () => {
+                const projectName = card.querySelector('.project-title').textContent;
+                const projectDate = card.querySelector('.project-date').textContent;
+                const projectDesc = card.querySelector('.project-description').textContent;
+                const projectType = card.getAttribute('data-project');
+
+                document.getElementById('modalTitle').textContent = projectName;
+                document.getElementById('modalDate').textContent = projectDate;
+                document.getElementById('modalDescription').textContent = projectDesc;
+
+                // Update gallery based on project
+                const gallery = document.getElementById('modalGallery');
+                if (projectType === 'medlo') {
+                    gallery.innerHTML = `
+                        <img src="Medlo_1.JPG" alt="Medlo Project Image 1">
+                        <img src="Medlo_2.JPG" alt="Medlo Project Image 2">
+                        <img src="Medlo_3.JPG" alt="Medlo Project Image 3">
+                    `;
+                }
+
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Character count for message
+        const messageTextarea = document.getElementById('message');
+        const charCount = document.getElementById('charCount');
+
+        messageTextarea.addEventListener('input', () => {
+            charCount.textContent = messageTextarea.value.length;
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            e.target.reset();
+            charCount.textContent = '0';
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
