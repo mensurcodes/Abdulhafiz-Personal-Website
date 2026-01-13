@@ -469,14 +469,34 @@
         }
 
         .resume-content {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
+        }
+
+        .resume-header {
             text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .resume-viewer {
+            width: 100%;
+            height: 800px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            background: var(--bg-light);
+        }
+
+        .resume-viewer iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .resume-download {
             display: inline-block;
-            margin-top: 2rem;
             padding: 1rem 2.5rem;
             background: var(--emerald-primary);
             color: white;
@@ -484,12 +504,17 @@
             border-radius: 8px;
             font-weight: 600;
             transition: all 0.3s;
+            text-align: center;
         }
 
         .resume-download:hover {
             background: var(--emerald-dark);
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        .resume-download-container {
+            text-align: center;
         }
 
         /* Contact Section */
@@ -642,6 +667,10 @@
             .lightbox-next {
                 right: 10px;
             }
+
+            .resume-viewer {
+                height: 600px;
+            }
         }
     </style>
 </head>
@@ -709,7 +738,7 @@
                     <div class="project-gallery">
                         <div class="gallery-item" data-src="Medlo_1.JPG" data-alt="Medlo Project Image 1" data-project="medlo">
                             <img src="Medlo_1.JPG" alt="Medlo Project Image 1">
-                        </div>
+                </div>
                         <div class="gallery-item" data-src="Medlo_2.JPG" data-alt="Medlo Project Image 2" data-project="medlo">
                             <img src="Medlo_2.JPG" alt="Medlo Project Image 2">
                         </div>
@@ -718,10 +747,10 @@
                         </div>
                         <div class="gallery-item" data-src="Landing_Page.jpeg" data-alt="Medlo Landing Page" data-project="medlo">
                             <img src="Landing_Page.jpeg" alt="Medlo Landing Page">
-                        </div>
+                    </div>
                         <div class="gallery-item" data-src="Sign_in_Portal.jpeg" data-alt="Medlo Sign In Portal" data-project="medlo">
                             <img src="Sign_in_Portal.jpeg" alt="Medlo Sign In Portal">
-                        </div>
+                </div>
                         <div class="gallery-item" data-src="Patient_Portal.jpeg" data-alt="Medlo Patient Portal" data-project="medlo">
                             <img src="Patient_Portal.jpeg" alt="Medlo Patient Portal">
                         </div>
@@ -745,31 +774,31 @@
                             Led clothing drives from Addis Ababa to multiple regions in Ethiopia to support children affected by the recent civil war in the northern region.
                         </div>
                         <a href="https://www.gofundme.com/f/support-ethiopian-kids-with-essential-school-supplies" target="_blank" class="project-link">View GoFundMe Campaign →</a>
-                    </div>
+                        </div>
                     <div class="project-gallery">
                         <div class="gallery-item" data-src="Gofundme_Page_Picture.jpeg" data-alt="Egnaw GoFundMe Campaign" data-project="egnaw">
                             <img src="Gofundme_Page_Picture.jpeg" alt="Egnaw GoFundMe Campaign">
-                        </div>
+                    </div>
                         <div class="gallery-item" data-src="Egnaw_1.JPG" data-alt="Egnaw Le Egnaw Foundation Image 1" data-project="egnaw">
                             <img src="Egnaw_1.JPG" alt="Egnaw Le Egnaw Foundation Image 1">
-                        </div>
+                </div>
                         <div class="gallery-item" data-src="Egnaw_2.JPG" data-alt="Egnaw Le Egnaw Foundation Image 2" data-project="egnaw">
                             <img src="Egnaw_2.JPG" alt="Egnaw Le Egnaw Foundation Image 2">
-                        </div>
+            </div>
                         <div class="gallery-item" data-src="Egnaw_4.JPG" data-alt="Egnaw Le Egnaw Foundation Image 4" data-project="egnaw">
                             <img src="Egnaw_4.JPG" alt="Egnaw Le Egnaw Foundation Image 4">
-                        </div>
+        </div>
                         <div class="gallery-item" data-src="Egnaw_5.JPG" data-alt="Egnaw Le Egnaw Foundation Image 5" data-project="egnaw">
                             <img src="Egnaw_5.JPG" alt="Egnaw Le Egnaw Foundation Image 5">
-                        </div>
+            </div>
                         <div class="gallery-item" data-src="Egnaw_6.jpeg" data-alt="Egnaw Le Egnaw Foundation Image 6" data-project="egnaw">
                             <img src="Egnaw_6.jpeg" alt="Egnaw Le Egnaw Foundation Image 6">
-                        </div>
+                    </div>
                         <div class="gallery-item" data-src="Egnaw_7.jpeg" data-alt="Egnaw Le Egnaw Foundation Image 7" data-project="egnaw">
                             <img src="Egnaw_7.jpeg" alt="Egnaw Le Egnaw Foundation Image 7">
-                        </div>
                     </div>
                 </div>
+                    </div>
                 <div class="project-card">
                     <div class="project-logo">
                         <img src="Fabric_Fingerprint_Logo.jpeg" alt="Fabric Fingerprint Logo">
@@ -780,19 +809,19 @@
                         <div class="project-description">
                             Worked with a team of four to develop Fabric Fingerprint, a sourcing platform connecting designers with verified, sustainable fabric suppliers. Built a functional demo app showcasing designer to fabric matching, supplier verification, and automatic language translation.<br><br>
                             Presented at the 2025 Perimeter College Innovation Challenge, demonstrating sustainability and efficiency improvements in fashion supply chains.
-                        </div>
+                </div>
                         <div class="tech-tags">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">TypeScript</span>
                             <span class="tech-tag">Node.js</span>
                             <span class="tech-tag">BetterAuth</span>
                             <span class="tech-tag">Git</span>
-                        </div>
+                    </div>
                     </div>
                     <div class="project-gallery">
                         <div class="gallery-item" data-src="Searching_Option.jpeg" data-alt="Fabric Fingerprint Searching Option" data-project="fabric">
                             <img src="Searching_Option.jpeg" alt="Fabric Fingerprint Searching Option">
-                        </div>
+                </div>
                         <div class="gallery-item" data-src="Fabric_1.PNG" data-alt="Fabric Fingerprint Presentation Image 1" data-project="fabric">
                             <img src="Fabric_1.PNG" alt="Fabric Fingerprint Presentation Image 1">
                         </div>
@@ -803,8 +832,8 @@
                             <img src="Fabric_3.PNG" alt="Fabric Fingerprint Presentation Image 3">
                         </div>
                     </div>
-                </div>
             </div>
+        </div>
     </section>
 
 
@@ -812,11 +841,21 @@
     <section id="resume">
         <div class="container">
             <div class="resume-content">
-                <div class="section-header">
+            <div class="section-header">
                     <h2 class="section-title">Resume</h2>
+            </div>
+                <div class="resume-viewer">
+                    <object data="Abdulhafiz_Muzyin_Latest_Resume (1).pdf#toolbar=1&navpanes=1&scrollbar=1" type="application/pdf">
+                        <embed src="Abdulhafiz_Muzyin_Latest_Resume (1).pdf#toolbar=1&navpanes=1&scrollbar=1" type="application/pdf" />
+                        <p style="padding: 2rem; text-align: center; color: var(--text-light);">
+                            Your browser does not support PDFs. 
+                            <a href="Abdulhafiz_Muzyin_Latest_Resume (1).pdf" target="_blank" style="color: var(--emerald-primary);">Click here to download the PDF</a>.
+                        </p>
+                    </object>
                 </div>
-                <p style="color: var(--text-light); font-size: 1.1rem; margin-bottom: 1rem;">Download my resume to learn more about my experience and qualifications.</p>
-                <a href="Abdulhafiz_Muzyin_Latest_Resume (1).pdf" class="resume-download" target="_blank">Download Resume</a>
+                <div class="resume-download-container">
+                    <a href="Abdulhafiz_Muzyin_Latest_Resume (1).pdf" class="resume-download" download>Download Resume</a>
+                    </div>
             </div>
         </div>
     </section>
@@ -825,19 +864,19 @@
     <section id="contact">
         <div class="container">
             <div class="contact-content">
-            <div class="section-header">
+                <div class="section-header">
                     <h2 class="section-title">Contact Me</h2>
-            </div>
+                </div>
                 <div class="social-links" style="justify-content: center; margin-bottom: 2rem;">
                     <a href="https://linkedin.com" title="LinkedIn">in</a>
                     <a href="https://instagram.com" title="Instagram">ig</a>
                     <a href="https://github.com/abdulhafizmuzyin" title="GitHub">gh</a>
-                    </div>
+                        </div>
                 <form class="contact-form" id="contactForm">
                     <div class="form-group required">
                         <label for="firstName">First Name</label>
                         <input type="text" id="firstName" name="firstName" required>
-                    </div>
+                        </div>
                     <div class="form-group required">
                         <label for="email">Email Address</label>
                         <input type="email" id="email" name="email" required>
