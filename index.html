@@ -487,12 +487,41 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             margin-bottom: 2rem;
             background: var(--bg-light);
+            position: relative;
+        }
+
+        .resume-viewer object {
+            width: 100% !important;
+            height: 100% !important;
+            min-width: 100%;
+            min-height: 100%;
+            border: none;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .resume-viewer embed {
+            width: 100% !important;
+            height: 100% !important;
+            min-width: 100%;
+            min-height: 100%;
+            border: none;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         .resume-viewer iframe {
-            width: 100%;
-            height: 100%;
+            width: 100% !important;
+            height: 100% !important;
             border: none;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         .resume-download {
@@ -845,13 +874,12 @@
                     <h2 class="section-title">Resume</h2>
             </div>
                 <div class="resume-viewer">
-                    <object data="Abdulhafiz_Muzyin_Latest_Resume (1).pdf#toolbar=1&navpanes=1&scrollbar=1" type="application/pdf">
-                        <embed src="Abdulhafiz_Muzyin_Latest_Resume (1).pdf#toolbar=1&navpanes=1&scrollbar=1" type="application/pdf" />
+                    <iframe src="Abdulhafiz_Muzyin_Latest_Resume (1).pdf#toolbar=1&navpanes=1&scrollbar=1" type="application/pdf">
                         <p style="padding: 2rem; text-align: center; color: var(--text-light);">
                             Your browser does not support PDFs. 
                             <a href="Abdulhafiz_Muzyin_Latest_Resume (1).pdf" target="_blank" style="color: var(--emerald-primary);">Click here to download the PDF</a>.
                         </p>
-                    </object>
+                    </iframe>
                 </div>
                 <div class="resume-download-container">
                     <a href="Abdulhafiz_Muzyin_Latest_Resume (1).pdf" class="resume-download" download>Download Resume</a>
