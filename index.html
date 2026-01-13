@@ -224,36 +224,12 @@
             background: var(--bg-light);
         }
 
-        .project-filters {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.6rem 1.5rem;
-            border: 2px solid var(--emerald-primary);
-            background: transparent;
-            color: var(--emerald-primary);
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.95rem;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--emerald-primary);
-            color: white;
-        }
-
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .project-card {
@@ -262,7 +238,6 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
         }
 
         .project-card:hover {
@@ -270,21 +245,33 @@
             box-shadow: 0 15px 40px rgba(16, 185, 129, 0.2);
         }
 
-        .project-image {
-            height: 250px;
-            overflow: hidden;
-            position: relative;
+        .project-logo {
+            padding: 2rem;
+            text-align: center;
+            background: var(--bg-light);
         }
 
-        .project-image img {
+        .project-logo img {
+            max-width: 100%;
+            height: auto;
+            max-height: 200px;
+            object-fit: contain;
+        }
+
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+            background: var(--bg-light);
+        }
+
+        .project-gallery img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover .project-image img {
-            transform: scale(1.05);
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .project-content {
@@ -326,107 +313,6 @@
             font-weight: 600;
         }
 
-        /* Project Modal */
-        .project-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            overflow-y: auto;
-        }
-
-        .project-modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 16px;
-            max-width: 900px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--emerald-primary);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-
-        .modal-close:hover {
-            background: var(--emerald-dark);
-            transform: rotate(90deg);
-        }
-
-        .modal-header {
-            padding: 2rem;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .modal-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-date {
-            color: var(--emerald-primary);
-            font-weight: 600;
-        }
-
-        .modal-body {
-            padding: 2rem;
-        }
-
-        .modal-description {
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .modal-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .modal-gallery img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .modal-gallery img:hover {
-            transform: scale(1.05);
-        }
 
         /* Resume Section */
         #resume {
@@ -591,11 +477,7 @@
                 font-size: 2rem;
             }
 
-            .modal-content {
-                margin: 1rem;
-            }
-
-            .modal-gallery {
+            .project-gallery {
                 grid-template-columns: 1fr;
             }
         }
@@ -608,7 +490,7 @@
             <div class="logo">Abdulhafiz Muzyin</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#projects">My Projects</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#resume">Resume</a></li>
                 <li><a href="#contact">Contact Me</a></li>
             </ul>
@@ -641,19 +523,10 @@
     <!-- Projects -->
     <section id="projects">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">My Projects</h2>
-            </div>
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="mechanical">Mechanical</button>
-                <button class="filter-btn" data-filter="electrical">Electrical</button>
-                <button class="filter-btn" data-filter="software">Software</button>
-            </div>
             <div class="projects-grid">
-                <div class="project-card" data-category="software" data-project="medlo">
-                    <div class="project-image">
-                        <img src="Medlo_Logo.jpeg" alt="Medlo Project">
+                <div class="project-card">
+                    <div class="project-logo">
+                        <img src="Medlo_Logo.jpeg" alt="Medlo Logo">
                     </div>
                     <div class="project-content">
                         <div class="project-title">Medlo</div>
@@ -668,31 +541,17 @@
                             <span class="tech-tag">FastAPI</span>
                         </div>
                     </div>
-                </div>
-                        </div>
-                        </div>
-    </section>
-
-    <!-- Project Modal -->
-    <div class="project-modal" id="projectModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">×</button>
-            <div class="modal-header">
-                <h2 class="modal-title" id="modalTitle">Medlo</h2>
-                <div class="modal-date" id="modalDate">Jun 2025 – Present</div>
-                        </div>
-            <div class="modal-body">
-                <p class="modal-description" id="modalDescription">
-                    Built backend for full-stack medical record platform piloted in eight Ethiopian medical institutions. Implemented authentication via FAYDA (Ethiopia's national ID) and developed RESTful APIs with FastAPI.
-                </p>
-                <div class="modal-gallery" id="modalGallery">
-                    <img src="Medlo_1.JPG" alt="Medlo Project Image 1">
-                    <img src="Medlo_2.JPG" alt="Medlo Project Image 2">
-                    <img src="Medlo_3.JPG" alt="Medlo Project Image 3">
-                        </div>
+                    <div class="project-gallery">
+                        <img src="Landing_Page.jpeg" alt="Medlo Landing Page">
+                        <img src="Sign_in_Portal.jpeg" alt="Medlo Sign In Portal">
+                        <img src="Patient_Portal.jpeg" alt="Medlo Patient Portal">
+                        <img src="Doctor_Portal.jpeg" alt="Medlo Doctor Portal">
+                        <img src="Hospital_Admin_Portal.jpeg" alt="Medlo Hospital Admin Portal">
                     </div>
                 </div>
             </div>
+    </section>
+
 
     <!-- Resume -->
     <section id="resume">
@@ -749,70 +608,6 @@
     </footer>
 
     <script>
-        // Project filter functionality
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-
-        filterButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Update active state
-                filterButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                // Filter projects
-                const filter = btn.getAttribute('data-filter');
-                projectCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Project modal functionality
-        const modal = document.getElementById('projectModal');
-        const projectCardsWithModal = document.querySelectorAll('.project-card[data-project]');
-
-        projectCardsWithModal.forEach(card => {
-            card.addEventListener('click', () => {
-                const projectName = card.querySelector('.project-title').textContent;
-                const projectDate = card.querySelector('.project-date').textContent;
-                const projectDesc = card.querySelector('.project-description').textContent;
-                const projectType = card.getAttribute('data-project');
-
-                document.getElementById('modalTitle').textContent = projectName;
-                document.getElementById('modalDate').textContent = projectDate;
-                document.getElementById('modalDescription').textContent = projectDesc;
-
-                // Update gallery based on project
-                const gallery = document.getElementById('modalGallery');
-                if (projectType === 'medlo') {
-                    gallery.innerHTML = `
-                        <img src="Medlo_1.JPG" alt="Medlo Project Image 1">
-                        <img src="Medlo_2.JPG" alt="Medlo Project Image 2">
-                        <img src="Medlo_3.JPG" alt="Medlo Project Image 3">
-                    `;
-                }
-
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        function closeModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal on outside click
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
         // Character count for message
         const messageTextarea = document.getElementById('message');
         const charCount = document.getElementById('charCount');
