@@ -111,6 +111,8 @@ h2{font-stretch:125%;font-weight:800;font-size:clamp(2rem,4.5vw,3.2rem);line-hei
 .proj .kind{font-weight:700;color:var(--c)}
 .proj .when{color:var(--muted);font-size:.95rem}
 .proj .logo{width:4.5rem;height:4.5rem;object-fit:contain;background:#fff;border:1px solid var(--rule);margin-top:.4rem}
+.proj h4{font-stretch:112%;font-weight:700;font-size:1.15rem;margin:1.4rem 0 .45rem}
+.pending{color:var(--muted);font-size:.95rem;border-left:3px solid var(--c);padding-left:.75rem}
 .proj h3{font-stretch:112%;font-weight:750;font-size:1.65rem;line-height:1.15;letter-spacing:-.015em;margin-bottom:.75rem}
 .proj .body>p{max-width:var(--measure);margin-bottom:.9rem}
 .proj ul{max-width:var(--measure);list-style:none;margin-bottom:1rem}
@@ -261,6 +263,33 @@ footer{margin-top:5rem;padding:2rem 0;border-top:1px solid var(--rule);color:var
       <label data-layer="me"><input type="checkbox" value="me" checked><span class="sw hatch"></span>Mechanical</label>
       <label data-layer="cm"><input type="checkbox" value="cm" checked><span class="sw hatch"></span>Community</label>
     </fieldset>
+
+    <article class="proj feature" data-layer="hw" id="discovery">
+      <div class="side">
+        <span class="bar hatch"></span>
+        <span class="kind">Hardware</span>
+        <span class="when">Fall 2026, in progress</span>
+        <span class="when">ECE 1100 Discovery Project</span>
+      </div>
+      <div class="body">
+        <h3>FPGA digital lock</h3>
+        <p>A password-protected digital lock built on an Intel DE10-Standard FPGA board. You enter a code with the board's switches and push buttons, and LEDs show whether the lock is locked or unlocked. I chose this as my ECE 1100 Discovery Project to learn FPGA programming, digital logic, and finite-state machine design by building something I could hold and test.</p>
+
+        <h4>The problem</h4>
+        <p>Locks are everywhere: doors, safes, lockers, and the access panels on buildings. Most electronic locks run on a microcontroller, where software reads the keypad and decides what to do. I wanted to understand how the same behavior can be built directly in hardware, with no processor and no program running line by line. An FPGA lets me describe the lock as digital logic, so every input is checked by circuits that react on each clock cycle. The question I set out to answer was simple: can I design a lock whose entire behavior lives in a finite-state machine, and make it reliable enough to trust?</p>
+
+        <h4>The process</h4>
+        <p>I started by drawing the lock as a state diagram before writing any code. Each state stands for how much of the code has been entered correctly so far. A correct input moves the machine forward one state, a wrong input sends it back to the start, and reaching the final state unlocks the lock. A reset button returns everything to the locked state at any time.</p>
+        <p>Next I wrote the design in SystemVerilog in Intel Quartus Prime. I split it into sequential logic, which stores the current state on each clock edge, and combinational logic, which decides the next state from the current state and the inputs. I mapped the inputs and outputs to the board: the switches and push buttons for entering the code and resetting, and the LEDs for showing locked or unlocked.</p>
+        <p>To check the design, I simulated it before loading it onto the board. I tested the correct code, wrong codes, a wrong entry partway through a correct sequence, and resets in the middle of entry. After simulation, I programmed the FPGA and repeated the same tests by hand on the real hardware.</p>
+
+        <h4>The outcome</h4>
+        <p>The project is still in progress. So far I have a working state diagram, a SystemVerilog design, and tests for valid and invalid code sequences and for reset behavior, both in simulation and on the board. The biggest lesson has been how much planning matters in hardware: once the state diagram was right, the code followed from it, and most of my bugs came from cases I had not drawn yet. Next, I plan to make the code changeable instead of fixed, add a lockout after too many wrong attempts, and record a demo video of the lock running on the board for the Discovery Project Showcase.</p>
+
+        <div class="tools"><span>SystemVerilog</span><span>Intel DE10-Standard</span><span>Quartus Prime</span><span>Finite-state machines</span><span>Simulation</span></div>
+        <p class="pending">Photos and a demo video of the lock running on the board are coming soon.</p>
+      </div>
+    </article>
 
     <article class="proj" data-layer="hw">
       <div class="side">
@@ -436,7 +465,6 @@ footer{margin-top:5rem;padding:2rem 0;border-top:1px solid var(--rule);color:var
       <h3>Smaller builds</h3>
       <dl>
         <div><dt>Micromouse firmware</dt><dd>C/C++ flood-fill maze solver with PID motor control, encoder feedback, and IR wall sensing. RoboJackets, 2026.</dd></div>
-        <div><dt>FPGA access controller</dt><dd>A password lock built from SystemVerilog FSMs on an Intel DE10-Standard board, verified in simulation and on hardware. 2026.</dd></div>
       </dl>
     </div>
   </section>
