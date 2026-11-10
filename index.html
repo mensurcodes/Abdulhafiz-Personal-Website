@@ -140,6 +140,8 @@ h2{font-stretch:125%;font-weight:800;font-size:clamp(2rem,4.5vw,3.2rem);line-hei
 .xp li{display:grid;grid-template-columns:11rem 1fr;gap:2rem;padding:1.1rem 0;border-bottom:1px solid var(--rule)}
 .xp .d{color:var(--muted);font-size:.95rem}
 .xp b{font-weight:700}
+.steps{counter-reset:step}
+.steps li .d::before{counter-increment:step;content:counter(step) ". ";font-weight:700;color:var(--hw)}
 .xp p{color:#2A3047;max-width:var(--measure);font-size:.98rem}
 
 /* resume */
@@ -196,7 +198,9 @@ footer{margin-top:5rem;padding:2rem 0;border-top:1px solid var(--rule);color:var
     <nav aria-label="Main">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
+      <a href="#goals">Goals</a>
       <a href="#experience">Experience</a>
+      <a href="#awards">Awards</a>
       <a href="#resume">Resume</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -237,7 +241,9 @@ footer{margin-top:5rem;padding:2rem 0;border-top:1px solid var(--rule);color:var
         <div><dt>Studying</dt><dd>B.S. Computer Engineering, Georgia Tech, expected May 2028</dd></div>
         <div><dt>GPA</dt><dd>3.91 / 4.00</dd></div>
         <div><dt>Focus</dt><dd>RTL design, functional verification, physical design, embedded C/C++</dd></div>
-        <div><dt>Tools</dt><dd>Cadence Xcelium, SimVision, Innovus, Pegasus; Synopsys Design Compiler; Quartus</dd></div>
+        <div><dt>Hardware tools</dt><dd>Cadence Xcelium, SimVision, Innovus, Pegasus; Synopsys Design Compiler; Intel Quartus Prime</dd></div>
+        <div><dt>Software</dt><dd>C, C++, Python, Java, MATLAB, FastAPI, React, TypeScript, PostgreSQL, Git, Linux</dd></div>
+        <div><dt>Mechanical</dt><dd>Autodesk Inventor, AutoCAD</dd></div>
         <div><dt>Languages</dt><dd>English, Amharic, Spanish</dd></div>
         <div><dt>Member of</dt><dd>ColorStack, NSBE, GTEESA</dd></div>
       </dl>
@@ -435,6 +441,29 @@ footer{margin-top:5rem;padding:2rem 0;border-top:1px solid var(--rule);color:var
     </div>
   </section>
 
+  <section id="goals">
+    <h2>Career goals</h2>
+    <div class="about">
+      <div class="bio">
+        <p>I want to build the chips that everything else runs on. My long-term goal is to work in the semiconductor industry as a digital design and design verification engineer: writing the RTL for processor and SoC blocks, and proving that it works before it ever reaches silicon.</p>
+        <p>Verification is where I learned the most. Writing a testbench for my RISC-V processor showed me how many ways a design can be wrong while still looking right, and how much a good scoreboard and a clear waveform can save. Taking the same design through synthesis and layout taught me that every line of RTL has a cost in timing and area. I want a career where I keep working across that whole path.</p>
+        <p>Here is how I plan to get there:</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Thread</dt><dd>Computing Hardware &amp; Emerging Architectures, plus Embedded Devices</dd></div>
+        <div><dt>Target roles</dt><dd>Digital design engineer, design verification engineer</dd></div>
+        <div><dt>Industry</dt><dd>Semiconductors and processor design</dd></div>
+      </dl>
+    </div>
+    <ol class="xp steps">
+      <li><span class="d">Now</span><div><b>Go deep in one area at Silicon Jackets</b><p>Pick the digital design or verification team and master it, moving from onboarding projects to real team designs, with stronger SystemVerilog, SVA, and UVM-style testbenches.</p></div></li>
+      <li><span class="d">2026 – 2027</span><div><b>Build the coursework foundation</b><p>Take the computer architecture, digital design, and VLSI courses in my thread, and join a hardware-focused VIP team to work on a longer research project.</p></div></li>
+      <li><span class="d">Summers 2027 – 2028</span><div><b>Land design and verification internships</b><p>Apply at semiconductor companies through the ECE Career Fair, ColorStack, and NSBE, using my RISC-V and FPGA projects to show hands-on RTL and verification work.</p></div></li>
+      <li><span class="d">After graduation</span><div><b>Start full time as a design or verification engineer</b><p>Join a semiconductor team, learn production flows and tools, and grow toward owning the design or verification of a full block.</p></div></li>
+      <li><span class="d">Long term</span><div><b>Lead and give back</b><p>Lead hardware projects, mentor younger students through STEM workshops, and keep supporting schools in Ethiopia through the Egnaw Le Egnaw Foundation.</p></div></li>
+    </ol>
+  </section>
+
   <section id="experience">
     <h2>Experience</h2>
     <ul class="xp">
@@ -443,6 +472,31 @@ footer{margin-top:5rem;padding:2rem 0;border-top:1px solid var(--rule);color:var
       <li><span class="d">Aug 2026 – present</span><div><b>UX Researcher, Global Assistive Technology Innovation VIP</b><p>Interviewed stakeholders in the U.S. and Rwanda and turned their needs into requirements for a collaboration platform.</p></div></li>
       <li><span class="d">Dec 2025 – Jan 2026</span><div><b>Manufacturing &amp; Process Improvement Intern, Al-Nur Industrial Group, Addis Ababa</b><p>Cut cable packaging handling time by 6 seconds per roll and built a QR-code verification system against counterfeit cables.</p></div></li>
     </ul>
+  </section>
+
+  <section id="awards">
+    <h2>Awards and honors</h2>
+    <ul class="xp">
+      <li><span class="d">Spring 2026</span><div><b>Student of the Semester Award, ENGR 2040 (Electric Circuits)</b><p>Georgia State University Perimeter College. Earned the highest grade in Electric Circuits and was recognized for dedication and active participation.</p></div></li>
+      <li><span class="d">April 2026</span><div><b>Sophomore STEM Scholar of Excellence Award</b><p>Georgia State University Perimeter College. Given to the sophomore with the highest GPA while completing the most STEM credits.</p></div></li>
+      <li><span class="d">April 2026</span><div><b>Sophomore STEM Scholar Award</b><p>Georgia State University Perimeter College. Recognized for a high GPA across a demanding schedule of mathematics, engineering, and science courses.</p></div></li>
+      <li><span class="d">April 2026</span><div><b>Service Excellence Award, STAR Awards</b><p>Georgia State University Perimeter College. Recognized for community service and outreach that supports communities beyond the college.</p></div></li>
+      <li><span class="d">April 2026</span><div><b>The Dean's Award, STAR Cocurricular Awards</b><p>Georgia State University Perimeter College. Chosen by a committee of Perimeter College faculty and staff for outstanding achievement during the 2025–2026 academic year.</p></div></li>
+      <li><span class="d">2024 – 2026</span><div><b>President's List, five semesters</b><p>Georgia State University. Named in Spring 2024, Fall 2024, Spring 2025, Fall 2025, and Spring 2026. <a class="ext" href="https://gsu.meritpages.com/stories/Abdulhafiz-Muzyin-Named-to-Spring-2026-President-s-List/189439532" target="_blank" rel="noopener">Read the announcement</a></p></div></li>
+      <li><span class="d">2025</span><div><b>Winner, CLACEC Coding Competition</b><p>Won the CLACEC coding competition.</p></div></li>
+      <li><span class="d">Honor society</span><div><b>Phi Theta Kappa</b><p>Member of the international honor society that recognizes academic achievement.</p></div></li>
+    </ul>
+    <div class="shots" data-set="awards" style="--c:var(--cm);margin-top:1.5rem">
+      <button data-src="Award_Student_Semester.jpg" data-cap="Student of the Semester Award, ENGR 2040, Spring 2026"><img src="Award_Student_Semester.jpg" alt="Student of the Semester Award, ENGR 2040, Spring 2026" loading="lazy"></button>
+      <button data-src="Award_STEM_Excellence_Cert.jpg" data-cap="Sophomore STEM Student Scholar of Excellence Award"><img src="Award_STEM_Excellence_Cert.jpg" alt="Sophomore STEM Student Scholar of Excellence Award" loading="lazy"></button>
+      <button data-src="Award_STEM_Week.jpg" data-cap="Receiving the STEM Scholar of Excellence Award during STEM Week"><img src="Award_STEM_Week.jpg" alt="Receiving the STEM Scholar of Excellence Award during STEM Week" loading="lazy"></button>
+      <button data-src="Award_STEM_Scholar_Cert.jpg" data-cap="Sophomore STEM Student Scholar Award"><img src="Award_STEM_Scholar_Cert.jpg" alt="Sophomore STEM Student Scholar Award" loading="lazy"></button>
+      <button data-src="Award_Service_Excellence.jpg" data-cap="Service Excellence Award at the STAR Awards"><img src="Award_Service_Excellence.jpg" alt="Service Excellence Award at the STAR Awards" loading="lazy"></button>
+      <button data-src="Award_STAR_Stage.jpg" data-cap="STAR Awards ceremony at Perimeter College"><img src="Award_STAR_Stage.jpg" alt="STAR Awards ceremony at Perimeter College" loading="lazy"></button>
+      <button data-src="Award_Ceremony.jpg" data-cap="Receiving the Dean's Award and the Service Excellence Award"><img src="Award_Ceremony.jpg" alt="Holding the Dean's Award and Service Excellence Award certificates" loading="lazy"></button>
+      <button data-src="Award_Stage.jpg" data-cap="On stage at the STAR Awards"><img src="Award_Stage.jpg" alt="On stage at the STAR Awards" loading="lazy"></button>
+      <button data-src="Award_STAR_Group.jpg" data-cap="2026 STAR Awards honorees"><img src="Award_STAR_Group.jpg" alt="Group photo of 2026 STAR Awards honorees" loading="lazy"></button>
+    </div>
   </section>
 
   <section id="resume">
