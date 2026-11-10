@@ -1,1054 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdulhafiz Muzyin</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --emerald-primary: #10b981;
-            --emerald-dark: #059669;
-            --emerald-light: #d1fae5;
-            --emerald-very-dark: #064e3b;
-            --text-dark: #1f2937;
-            --text-light: #6b7280;
-            --bg-white: #ffffff;
-            --bg-light: #f9fafb;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--bg-white);
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            z-index: 1000;
-            padding: 1.2rem 0;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--emerald-primary);
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 8rem 2rem 4rem;
-            background: var(--bg-white);
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--emerald-light);
-            color: var(--emerald-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background: var(--emerald-primary);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-image img {
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.2);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.9rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            display: inline-block;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: var(--emerald-primary);
-            color: white;
-            border: 2px solid var(--emerald-primary);
-        }
-
-        .btn-primary:hover {
-            background: var(--emerald-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-dark);
-            border: 2px solid var(--text-dark);
-        }
-
-        .btn-secondary:hover {
-            background: var(--text-dark);
-            color: white;
-        }
-
-        /* Section Styling */
-        section {
-            padding: 5rem 2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-        }
-
-        /* Projects Section */
-        #projects {
-            background: var(--bg-light);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.2);
-        }
-
-        .project-logo {
-            padding: 2rem;
-            text-align: center;
-            background: var(--bg-light);
-        }
-
-        .project-logo img {
-            max-width: 100%;
-            height: auto;
-            max-height: 200px;
-            object-fit: contain;
-        }
-
-        .project-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-            padding: 2rem;
-            background: var(--bg-light);
-        }
-
-        .gallery-item {
-            position: relative;
-            cursor: pointer;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            background: white;
-            aspect-ratio: 16 / 9;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .gallery-item::after {
-            content: '🔍';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            font-size: 2rem;
-            opacity: 0;
-            transition: all 0.3s ease;
-            pointer-events: none;
-            background: rgba(16, 185, 129, 0.9);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .gallery-item:hover::after {
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 1;
-        }
-
-        .gallery-item:hover img {
-            filter: brightness(0.7);
-        }
-
-        /* Lightbox Modal */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 3000;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-
-        .lightbox.active {
-            display: flex;
-        }
-
-        .lightbox-content {
-            position: relative;
-            max-width: 90vw;
-            max-height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .lightbox-content img {
-            max-width: 100%;
-            max-height: 90vh;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: -50px;
-            right: 0;
-            background: var(--emerald-primary);
-            color: white;
-            border: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            font-size: 1.8rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            line-height: 1;
-        }
-
-        .lightbox-close:hover {
-            background: var(--emerald-dark);
-            transform: rotate(90deg);
-        }
-
-        .lightbox-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(16, 185, 129, 0.8);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-
-        .lightbox-nav:hover {
-            background: var(--emerald-primary);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .lightbox-prev {
-            left: 20px;
-        }
-
-        .lightbox-next {
-            right: 20px;
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .project-date {
-            color: var(--emerald-primary);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .project-description {
-            color: var(--text-light);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tech-tag {
-            background: var(--emerald-light);
-            color: var(--emerald-primary);
-            padding: 0.4rem 0.9rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-top: 1rem;
-            color: var(--emerald-primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .project-link:hover {
-            color: var(--emerald-dark);
-            text-decoration: underline;
-        }
-
-
-        /* Resume Section */
-        #resume {
-            background: var(--bg-white);
-            padding: 5rem 2rem;
-        }
-
-        .resume-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .resume-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .resume-viewer {
-            width: 100%;
-            height: 800px;
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-            background: var(--bg-light);
-            position: relative;
-        }
-
-        .resume-viewer object {
-            width: 100% !important;
-            height: 100% !important;
-            min-width: 100%;
-            min-height: 100%;
-            border: none;
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .resume-viewer embed {
-            width: 100% !important;
-            height: 100% !important;
-            min-width: 100%;
-            min-height: 100%;
-            border: none;
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .resume-viewer iframe {
-            width: 100% !important;
-            height: 100% !important;
-            border: none;
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .resume-download {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--emerald-primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        .resume-download:hover {
-            background: var(--emerald-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
-        }
-
-        .resume-download-container {
-            text-align: center;
-        }
-
-        /* Contact Section */
-        #contact {
-            background: var(--bg-light);
-            padding: 5rem 2rem;
-        }
-
-        .contact-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .contact-form {
-            margin-top: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.9rem;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--emerald-primary);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .char-count {
-            text-align: right;
-            color: var(--text-light);
-            font-size: 0.85rem;
-            margin-top: 0.25rem;
-        }
-
-        .form-group.required label::after {
-            content: ' *';
-            color: var(--emerald-primary);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--emerald-primary);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .submit-btn:hover {
-            background: var(--emerald-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-
-            .hero-image img {
-                width: 300px;
-                height: 300px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .project-gallery {
-                grid-template-columns: 1fr;
-            }
-
-            .lightbox-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-
-            .lightbox-prev {
-                left: 10px;
-            }
-
-            .lightbox-next {
-                right: 10px;
-            }
-
-            .resume-viewer {
-                height: 600px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdulhafiz Muzyin</title>
+<meta name="description" content="Abdulhafiz Muzyin, computer engineering student at Georgia Tech working in digital design, verification, and embedded systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --wafer:#E7EAF0;
+  --sheet:#F6F7FA;
+  --ink:#151A29;
+  --muted:#565E78;
+  --rule:#C9CEDA;
+  --hw:#5B3FD0;
+  --sw:#0F8579;
+  --me:#2C64C8;
+  --cm:#A9730C;
+  --measure:38rem;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  background:var(--wafer);
+  color:var(--ink);
+  font-family:"Archivo",system-ui,sans-serif;
+  font-stretch:100%;
+  font-size:1.0625rem;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--hw);outline-offset:3px}
+.wrap{max-width:72rem;margin:0 auto;padding:0 1.5rem}
+
+/* nav */
+.top{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;gap:1rem;flex-wrap:wrap}
+.mark{font-weight:800;font-stretch:125%;text-decoration:none;letter-spacing:-.01em}
+.top nav{display:flex;gap:1.5rem;flex-wrap:wrap}
+.top nav a{text-decoration:none;color:var(--muted);font-weight:500}
+.top nav a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr minmax(15rem,22rem);gap:3rem;align-items:end;padding:3.5rem 0 2.5rem}
+.hero h1{
+  font-stretch:125%;font-weight:850;
+  font-size:clamp(3rem,9.5vw,8rem);
+  line-height:.88;letter-spacing:-.035em;
+  margin-bottom:1.75rem;
+}
+.hero h1 span{display:block}
+.hero .lede{max-width:var(--measure);font-size:1.2rem;line-height:1.55;color:#2A3047}
+.actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.75rem}
+.btn{
+  display:inline-block;text-decoration:none;font-weight:650;
+  padding:.8rem 1.3rem;border:2px solid var(--ink);border-radius:2px;
+}
+.btn.solid{background:var(--ink);color:var(--wafer)}
+.btn.solid:hover{background:var(--hw);border-color:var(--hw)}
+.btn.line:hover{background:var(--ink);color:var(--wafer)}
+.portrait{position:relative}
+.portrait img{height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;width:100%;position:relative;z-index:1}
+.portrait::before{
+  content:"";position:absolute;inset:1rem -1rem -1rem 1rem;
+  background:repeating-linear-gradient(135deg,var(--hw) 0 2px,transparent 2px 9px);
+}
+
+/* layout band */
+.die{margin:2.5rem 0 0}
+.die img{width:100%;height:clamp(9rem,22vw,17rem);object-fit:cover;object-position:center}
+.die figcaption{max-width:72rem;margin:0 auto;padding:.6rem 1.5rem 0;color:var(--muted);font-size:.9rem}
+
+section{padding:5rem 0 1rem}
+h2{font-stretch:125%;font-weight:800;font-size:clamp(2rem,4.5vw,3.2rem);line-height:1;letter-spacing:-.025em;margin-bottom:2rem}
+
+/* about */
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:3.5rem}
+.about .bio p{max-width:var(--measure);margin-bottom:1.1rem}
+.facts{border-top:2px solid var(--ink)}
+.facts div{display:grid;grid-template-columns:7.5rem 1fr;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--rule)}
+.facts dt{color:var(--muted);font-size:.95rem}
+.facts dd{font-weight:550}
+
+/* layer legend */
+.layers{
+  display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;align-items:center;
+  background:var(--sheet);border:1px solid var(--rule);padding:.9rem 1.1rem;margin-bottom:2.5rem;
+}
+.layers p{color:var(--muted);font-size:.95rem;margin-right:.5rem}
+.layers label{display:flex;align-items:center;gap:.55rem;cursor:pointer;font-weight:600;user-select:none}
+.layers input{width:1.05rem;height:1.05rem;accent-color:var(--ink);cursor:pointer}
+.sw{width:1.6rem;height:1.05rem;border:2px solid var(--c);display:inline-block}
+.hatch{background:repeating-linear-gradient(var(--a,135deg),var(--c) 0 2px,transparent 2px 6px)}
+[data-layer="hw"]{--c:var(--hw);--a:135deg}
+[data-layer="sw"]{--c:var(--sw);--a:45deg}
+[data-layer="me"]{--c:var(--me);--a:90deg}
+[data-layer="cm"]{--c:var(--cm);--a:0deg}
+
+/* projects */
+.proj{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:2rem;padding:2.5rem 0;border-top:1px solid var(--rule)}
+.proj[hidden]{display:none}
+.proj>*{min-width:0}
+.proj .side{display:flex;flex-direction:column;gap:.6rem;align-items:flex-start}
+.proj .bar{width:100%;height:.9rem;border:2px solid var(--c)}
+.proj .kind{font-weight:700;color:var(--c)}
+.proj .when{color:var(--muted);font-size:.95rem}
+.proj .logo{width:4.5rem;height:4.5rem;object-fit:contain;background:#fff;border:1px solid var(--rule);margin-top:.4rem}
+.proj h3{font-stretch:112%;font-weight:750;font-size:1.65rem;line-height:1.15;letter-spacing:-.015em;margin-bottom:.75rem}
+.proj .body>p{max-width:var(--measure);margin-bottom:.9rem}
+.proj ul{max-width:var(--measure);list-style:none;margin-bottom:1rem}
+.proj li{padding-left:1.25rem;position:relative;margin-bottom:.45rem}
+.proj li::before{content:"";position:absolute;left:0;top:.62em;width:.55rem;height:.55rem;background:var(--c)}
+.proj li b{font-weight:700}
+.tools{display:flex;flex-wrap:wrap;gap:.4rem;margin:.25rem 0 1.1rem}
+.tools span{font-size:.85rem;font-weight:550;padding:.15rem .55rem;border:1px solid var(--rule);background:var(--sheet)}
+.ext{font-weight:650;text-underline-offset:4px}
+.ext:hover{color:var(--c)}
+.shots{display:flex;gap:.6rem;overflow-x:auto;padding-bottom:.5rem;scroll-snap-type:x mandatory}
+.shots button{
+  flex:0 0 auto;width:11.5rem;height:7.5rem;padding:0;border:1px solid var(--rule);background:#fff;cursor:zoom-in;scroll-snap-align:start;
+}
+.shots button img{width:100%;height:100%;object-fit:cover}
+.shots button:hover{border-color:var(--c);outline:2px solid var(--c)}
+.empty{color:var(--muted);padding:2rem 0;border-top:1px solid var(--rule)}
+
+.more{margin-top:1rem;border-top:2px solid var(--ink);padding-top:1.5rem}
+.more h3{font-stretch:112%;font-size:1.25rem;margin-bottom:1rem}
+.more dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.5rem}
+.more dt{font-weight:700}
+.more dd{color:var(--muted);font-size:.97rem}
+
+/* experience */
+.xp{list-style:none;border-top:2px solid var(--ink)}
+.xp li{display:grid;grid-template-columns:11rem 1fr;gap:2rem;padding:1.1rem 0;border-bottom:1px solid var(--rule)}
+.xp .d{color:var(--muted);font-size:.95rem}
+.xp b{font-weight:700}
+.xp p{color:#2A3047;max-width:var(--measure);font-size:.98rem}
+
+/* resume */
+.resume-frame{background:#fff;border:1px solid var(--rule);height:min(85vh,62rem)}
+.resume-frame iframe{width:100%;height:100%;border:0}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:3.5rem;align-items:start}
+.contact .links{list-style:none;margin-top:1.25rem}
+.contact .links li{padding:.6rem 0;border-bottom:1px solid var(--rule)}
+.contact .links a{font-weight:650;text-underline-offset:4px}
+form{display:grid;gap:1rem;background:var(--sheet);border:1px solid var(--rule);padding:1.5rem}
+label.f{display:grid;gap:.35rem;font-weight:600;font-size:.95rem}
+input[type=text],input[type=email],textarea{
+  font:inherit;font-weight:400;padding:.7rem .8rem;border:1.5px solid var(--rule);background:#fff;color:var(--ink);border-radius:2px;
+}
+input:focus,textarea:focus{border-color:var(--hw);outline:none;box-shadow:0 0 0 3px rgba(91,63,208,.2)}
+textarea{min-height:8rem;resize:vertical}
+.hint{color:var(--muted);font-size:.85rem;font-weight:400}
+form .btn{justify-self:start;cursor:pointer;font:inherit;font-weight:650}
+
+footer{margin-top:5rem;padding:2rem 0;border-top:1px solid var(--rule);color:var(--muted);font-size:.9rem}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(10,12,20,.92);display:none;align-items:center;justify-content:center;z-index:50;padding:3.5rem 4rem}
+.lb.on{display:flex}
+.lb figure{max-width:100%;max-height:100%;display:flex;flex-direction:column;align-items:center;gap:.75rem}
+.lb img{max-height:calc(100vh - 9rem);max-width:100%;object-fit:contain;background:#fff}
+.lb figcaption{color:#DCE0EA;font-size:.95rem;text-align:center}
+.lb button{position:absolute;background:none;border:2px solid #DCE0EA;color:#fff;font:inherit;font-size:1.4rem;width:2.75rem;height:2.75rem;cursor:pointer;line-height:1}
+.lb button:hover{background:#fff;color:var(--ink)}
+.lb .x{top:1rem;right:1rem}
+.lb .prev{left:1rem;top:50%;transform:translateY(-50%)}
+.lb .next{right:1rem;top:50%;transform:translateY(-50%)}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:2.5rem}
+  .portrait{max-width:20rem}
+  .about,.contact{grid-template-columns:1fr;gap:2.5rem}
+  .proj,.xp li{grid-template-columns:minmax(0,1fr);gap:1rem}
+  .proj .side{flex-direction:row;flex-wrap:wrap;align-items:center;gap:.5rem 1rem}
+  .proj .bar{width:3rem}
+  .proj .logo{display:none}
+  .lb{padding:3.5rem .75rem}
+  .lb .prev,.lb .next{top:auto;bottom:1rem;transform:none}
+}
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">Abdulhafiz Muzyin</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">My Projects</a></li>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#contact">Contact Me</a></li>
-            </ul>
-            <div class="menu-toggle">☰</div>
-        </div>
+
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="#">A. Muzyin</a>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
     </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Hi, I'm Abdulhafiz!</h1>
-                <p>I'm an engineering student at Georgia State University passionate about computer architecture, FPGA acceleration, and building technology that makes a real impact. My interests span machine learning hardware, full-stack development, and STEM education.</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Contact Me</a>
-                    <a href="#projects" class="btn btn-secondary">See My Projects</a>
-                </div>
-                <div class="social-links">
-                    <a href="https://linkedin.com" title="LinkedIn">in</a>
-                    <a href="https://instagram.com" title="Instagram">ig</a>
-                    <a href="https://github.com/abdulhafizmuzyin" title="GitHub">gh</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="Personal_Picture.jpeg" alt="Abdulhafiz Muzyin">
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">My Projects</h2>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-logo">
-                        <img src="Medlo_Logo.jpeg" alt="Medlo Logo">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-title">Medlo</div>
-                        <div class="project-date">Jun 2025 – Present</div>
-                        <div class="project-description">
-                            Built backend for full-stack medical record platform piloted in eight Ethiopian medical institutions. Implemented authentication via FAYDA (Ethiopia's national ID) and developed RESTful APIs with FastAPI.
-                        </div>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">BetterAuth</span>
-                            <span class="tech-tag">FastAPI</span>
-                        </div>
-                    </div>
-                    <div class="project-gallery">
-                        <div class="gallery-item" data-src="Medlo_1.JPG" data-alt="Medlo Project Image 1" data-project="medlo">
-                            <img src="Medlo_1.JPG" alt="Medlo Project Image 1">
-                </div>
-                        <div class="gallery-item" data-src="Medlo_2.JPG" data-alt="Medlo Project Image 2" data-project="medlo">
-                            <img src="Medlo_2.JPG" alt="Medlo Project Image 2">
-                        </div>
-                        <div class="gallery-item" data-src="Medlo_3.JPG" data-alt="Medlo Project Image 3" data-project="medlo">
-                            <img src="Medlo_3.JPG" alt="Medlo Project Image 3">
-                        </div>
-                        <div class="gallery-item" data-src="Landing_Page.jpeg" data-alt="Medlo Landing Page" data-project="medlo">
-                            <img src="Landing_Page.jpeg" alt="Medlo Landing Page">
-                    </div>
-                        <div class="gallery-item" data-src="Sign_in_Portal.jpeg" data-alt="Medlo Sign In Portal" data-project="medlo">
-                            <img src="Sign_in_Portal.jpeg" alt="Medlo Sign In Portal">
-                </div>
-                        <div class="gallery-item" data-src="Patient_Portal.jpeg" data-alt="Medlo Patient Portal" data-project="medlo">
-                            <img src="Patient_Portal.jpeg" alt="Medlo Patient Portal">
-                        </div>
-                        <div class="gallery-item" data-src="Doctor_Portal.jpeg" data-alt="Medlo Doctor Portal" data-project="medlo">
-                            <img src="Doctor_Portal.jpeg" alt="Medlo Doctor Portal">
-                        </div>
-                        <div class="gallery-item" data-src="Hospital_Admin_Portal.jpeg" data-alt="Medlo Hospital Admin Portal" data-project="medlo">
-                            <img src="Hospital_Admin_Portal.jpeg" alt="Medlo Hospital Admin Portal">
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-logo">
-                        <img src="Egnaw_Logo.JPG" alt="Egnaw Le Egnaw Foundation">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-title">Egnaw Le Egnaw (Us for Us) Foundation</div>
-                        <div class="project-date">Mar 2023 – Present</div>
-                        <div class="project-description">
-                            Co-founded a non-profit organization focused on providing educational resources to students in Ethiopia, particularly those affected by civil conflict. Raised $2800+ through GoFundMe and local bank donations, renovated four classrooms at Wesherbe Elementary School, and delivered academic textbooks to Wesherbe High School (160) and Holeta High School (112) for the 2025–26 academic year.<br><br>
-                            Led clothing drives from Addis Ababa to multiple regions in Ethiopia to support children affected by the recent civil war in the northern region.
-                        </div>
-                        <a href="https://www.gofundme.com/f/support-ethiopian-kids-with-essential-school-supplies" target="_blank" class="project-link">View GoFundMe Campaign →</a>
-                        </div>
-                    <div class="project-gallery">
-                        <div class="gallery-item" data-src="Gofundme_Page_Picture.jpeg" data-alt="Egnaw GoFundMe Campaign" data-project="egnaw">
-                            <img src="Gofundme_Page_Picture.jpeg" alt="Egnaw GoFundMe Campaign">
-                    </div>
-                        <div class="gallery-item" data-src="Egnaw_1.JPG" data-alt="Egnaw Le Egnaw Foundation Image 1" data-project="egnaw">
-                            <img src="Egnaw_1.JPG" alt="Egnaw Le Egnaw Foundation Image 1">
-                </div>
-                        <div class="gallery-item" data-src="Egnaw_2.JPG" data-alt="Egnaw Le Egnaw Foundation Image 2" data-project="egnaw">
-                            <img src="Egnaw_2.JPG" alt="Egnaw Le Egnaw Foundation Image 2">
-            </div>
-                        <div class="gallery-item" data-src="Egnaw_4.JPG" data-alt="Egnaw Le Egnaw Foundation Image 4" data-project="egnaw">
-                            <img src="Egnaw_4.JPG" alt="Egnaw Le Egnaw Foundation Image 4">
-        </div>
-                        <div class="gallery-item" data-src="Egnaw_5.JPG" data-alt="Egnaw Le Egnaw Foundation Image 5" data-project="egnaw">
-                            <img src="Egnaw_5.JPG" alt="Egnaw Le Egnaw Foundation Image 5">
-            </div>
-                        <div class="gallery-item" data-src="Egnaw_6.jpeg" data-alt="Egnaw Le Egnaw Foundation Image 6" data-project="egnaw">
-                            <img src="Egnaw_6.jpeg" alt="Egnaw Le Egnaw Foundation Image 6">
-                    </div>
-                        <div class="gallery-item" data-src="Egnaw_7.jpeg" data-alt="Egnaw Le Egnaw Foundation Image 7" data-project="egnaw">
-                            <img src="Egnaw_7.jpeg" alt="Egnaw Le Egnaw Foundation Image 7">
-                    </div>
-                </div>
-                    </div>
-                <div class="project-card">
-                    <div class="project-logo">
-                        <img src="Fabric_Fingerprint_Logo.jpeg" alt="Fabric Fingerprint Logo">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-title">Fabric Fingerprint</div>
-                        <div class="project-date">Sep 2025 – Nov 2025</div>
-                        <div class="project-description">
-                            Worked with a team of four to develop Fabric Fingerprint, a sourcing platform connecting designers with verified, sustainable fabric suppliers. Built a functional demo app showcasing designer to fabric matching, supplier verification, and automatic language translation.<br><br>
-                            Presented at the 2025 Perimeter College Innovation Challenge, demonstrating sustainability and efficiency improvements in fashion supply chains.
-                </div>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">BetterAuth</span>
-                            <span class="tech-tag">Git</span>
-                    </div>
-                    </div>
-                    <div class="project-gallery">
-                        <div class="gallery-item" data-src="Searching_Option.jpeg" data-alt="Fabric Fingerprint Searching Option" data-project="fabric">
-                            <img src="Searching_Option.jpeg" alt="Fabric Fingerprint Searching Option">
-                </div>
-                        <div class="gallery-item" data-src="Fabric_1.PNG" data-alt="Fabric Fingerprint Presentation Image 1" data-project="fabric">
-                            <img src="Fabric_1.PNG" alt="Fabric Fingerprint Presentation Image 1">
-                        </div>
-                        <div class="gallery-item" data-src="Fabric_2.PNG" data-alt="Fabric Fingerprint Presentation Image 2" data-project="fabric">
-                            <img src="Fabric_2.PNG" alt="Fabric Fingerprint Presentation Image 2">
-                        </div>
-                        <div class="gallery-item" data-src="Fabric_3.PNG" data-alt="Fabric Fingerprint Presentation Image 3" data-project="fabric">
-                            <img src="Fabric_3.PNG" alt="Fabric Fingerprint Presentation Image 3">
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Resume -->
-    <section id="resume">
-        <div class="container">
-            <div class="resume-content">
-            <div class="section-header">
-                    <h2 class="section-title">Resume</h2>
-            </div>
-                <div class="resume-viewer">
-                    <iframe src="Abdulhafiz_Muzyin_Latest_Resume (1).pdf#toolbar=1&navpanes=1&scrollbar=1" type="application/pdf">
-                        <p style="padding: 2rem; text-align: center; color: var(--text-light);">
-                            Your browser does not support PDFs. 
-                            <a href="Abdulhafiz_Muzyin_Latest_Resume (1).pdf" target="_blank" style="color: var(--emerald-primary);">Click here to download the PDF</a>.
-                        </p>
-                    </iframe>
-                </div>
-                <div class="resume-download-container">
-                    <a href="Abdulhafiz_Muzyin_Latest_Resume (1).pdf" class="resume-download" download>Download Resume</a>
-                    </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-        <div class="container">
-            <div class="contact-content">
-                <div class="section-header">
-                    <h2 class="section-title">Contact Me</h2>
-                </div>
-                <div class="social-links" style="justify-content: center; margin-bottom: 2rem;">
-                    <a href="https://linkedin.com" title="LinkedIn">in</a>
-                    <a href="https://instagram.com" title="Instagram">ig</a>
-                    <a href="https://github.com/abdulhafizmuzyin" title="GitHub">gh</a>
-                        </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group required">
-                        <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" name="firstName" required>
-                        </div>
-                    <div class="form-group required">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
-                </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group required">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" maxlength="180" required></textarea>
-                        <div class="char-count"><span id="charCount">0</span> / 180</div>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" onclick="closeLightbox()">×</button>
-        <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">‹</button>
-        <button class="lightbox-nav lightbox-next" onclick="changeImage(1)">›</button>
-        <div class="lightbox-content">
-            <img id="lightbox-img" src="" alt="">
-        </div>
+  <section class="hero" id="top" style="padding-top:3.5rem">
+    <div>
+      <h1><span>Abdulhafiz</span><span>Muzyin</span></h1>
+      <p class="lede">Computer engineering student at Georgia Tech. I design and verify digital hardware, write firmware for small robots, and help run a foundation that supports rural schools in Ethiopia.</p>
+      <div class="actions">
+        <a class="btn solid" href="#projects">See my projects</a>
+        <a class="btn line" href="Abdulhafiz_Muzyin_Resume.pdf" download>Download resume</a>
+      </div>
     </div>
+    <div class="portrait">
+      <img src="Headshot.jpg" alt="Portrait of Abdulhafiz Muzyin" width="900" height="1352">
+    </div>
+  </section>
+</div>
 
-    <!-- Footer -->
-    <footer>
-        <p>Copyright © 2026 - Created by <strong>Abdulhafiz Muzyin</strong></p>
-    </footer>
+<figure class="die">
+  <img src="RISCV_Layout_Band.jpg" alt="Routed layout of my RV32I RISC-V processor in Cadence Virtuoso">
+  <figcaption>The routed layout of my RV32I processor in SkyWater 130 nm, about 7,200 standard cells, viewed in Cadence Virtuoso.</figcaption>
+</figure>
 
-    <script>
-        // Lightbox functionality
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        let currentImageIndex = 0;
-        let currentProject = '';
-        let projectImages = [];
+<div class="wrap">
 
-        // Open lightbox when clicking on gallery item
-        galleryItems.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                // Get the project identifier
-                currentProject = item.getAttribute('data-project');
-                
-                // Filter images to only include those from the same project
-                projectImages = Array.from(galleryItems)
-                    .filter(img => img.getAttribute('data-project') === currentProject)
-                    .map(img => ({
-                        src: img.getAttribute('data-src'),
-                        alt: img.getAttribute('data-alt')
-                    }));
-                
-                // Find the index within the project's images
-                const allProjectItems = Array.from(galleryItems).filter(img => img.getAttribute('data-project') === currentProject);
-                currentImageIndex = allProjectItems.indexOf(item);
-                
-                openLightbox();
-            });
-        });
+  <section id="about">
+    <h2>About me</h2>
+    <div class="about">
+      <div class="bio">
+        <p>I'm Abdulhafiz, a computer engineering student at Georgia Tech. I like the part of engineering where code becomes something physical: a line of SystemVerilog that turns into gates, a firmware loop that decides how fast a motor spins.</p>
+        <p>This fall I took a 32-bit RISC-V processor from RTL all the way to a routed chip layout with Silicon Jackets. I wrote the design, built the testbench that caught its bugs, then pushed it through synthesis, place and route, and signoff, cutting total negative slack by 32% along the way. With RoboJackets I write the C++ firmware for an autonomous Micromouse that maps and solves a 16×16 maze.</p>
+        <p>Before Georgia Tech I studied engineering at Georgia State University, where I built Medlo, a medical record platform, and modeled a four-cylinder engine in Autodesk Inventor. Outside of class I co-founded Egnaw Le Egnaw, a nonprofit that has renovated classrooms and delivered textbooks, computers, and Wi-Fi to under-resourced schools in Ethiopia.</p>
+        <p>I'm looking for internships in digital design, verification, and embedded systems.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Studying</dt><dd>B.S. Computer Engineering, Georgia Tech, expected May 2028</dd></div>
+        <div><dt>GPA</dt><dd>3.91 / 4.00</dd></div>
+        <div><dt>Focus</dt><dd>RTL design, functional verification, physical design, embedded C/C++</dd></div>
+        <div><dt>Tools</dt><dd>Cadence Xcelium, SimVision, Innovus, Pegasus; Synopsys Design Compiler; Quartus</dd></div>
+        <div><dt>Languages</dt><dd>English, Amharic, Spanish</dd></div>
+        <div><dt>Member of</dt><dd>ColorStack, NSBE, GTEESA</dd></div>
+      </dl>
+    </div>
+  </section>
 
-        function openLightbox() {
-            lightbox.classList.add('active');
-            updateLightboxImage();
-            document.body.style.overflow = 'hidden';
-        }
+  <section id="projects">
+    <h2>Projects</h2>
 
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
+    <fieldset class="layers" style="border:1px solid var(--rule)">
+      <legend class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Filter projects by type</legend>
+      <p>Show layers</p>
+      <label data-layer="hw"><input type="checkbox" value="hw" checked><span class="sw hatch"></span>Hardware</label>
+      <label data-layer="sw"><input type="checkbox" value="sw" checked><span class="sw hatch"></span>Software</label>
+      <label data-layer="me"><input type="checkbox" value="me" checked><span class="sw hatch"></span>Mechanical</label>
+      <label data-layer="cm"><input type="checkbox" value="cm" checked><span class="sw hatch"></span>Community</label>
+    </fieldset>
 
-        function updateLightboxImage() {
-            if (projectImages.length > 0 && currentImageIndex >= 0 && currentImageIndex < projectImages.length) {
-                lightboxImg.src = projectImages[currentImageIndex].src;
-                lightboxImg.alt = projectImages[currentImageIndex].alt;
-            }
-        }
+    <article class="proj" data-layer="hw">
+      <div class="side">
+        <span class="bar hatch"></span>
+        <span class="kind">Hardware</span>
+        <span class="when">Aug 2026 – present</span>
+      </div>
+      <div class="body">
+        <h3>RISC-V processor: RTL to physical layout</h3>
+        <p>A 32-bit RV32I processor I took from SystemVerilog to a signed-off layout through Silicon Jackets' digital design, verification, and physical design tracks, in the SkyWater 130 nm process.</p>
+        <ul>
+          <li><b>Design.</b> Built the single-cycle processor in SystemVerilog with SRAM-based instruction and data memory and load-stall control.</li>
+          <li><b>Verification.</b> Wrote a class-based testbench with a monitor and reference-model scoreboard, plus directed and constrained-random instruction tests. Debugged failures in SimVision waveforms.</li>
+          <li><b>Physical design.</b> Synthesized to about 7,200 cells, then floorplanned and routed in Cadence Innovus with TCL. Improved total negative slack by 32% with clock gating and high-speed cells.</li>
+          <li><b>Signoff.</b> Ran DRC and LVS with Cadence Pegasus.</li>
+        </ul>
+        <div class="tools"><span>SystemVerilog</span><span>Cadence Innovus</span><span>Synopsys Design Compiler</span><span>Pegasus</span><span>SimVision</span><span>TCL</span></div>
+        <div class="shots" data-set="riscv">
+          <button data-src="RISCV_DRC.jpg" data-cap="DRC results in Pegasus next to the full chip layout in Virtuoso"><img src="RISCV_DRC.jpg" alt="DRC results and chip layout" loading="lazy"></button>
+          <button data-src="RISCV_LVS.jpg" data-cap="LVS run in Pegasus with the routed layout"><img src="RISCV_LVS.jpg" alt="LVS run and chip layout" loading="lazy"></button>
+          <button data-src="RISCV_Wave_1.jpg" data-cap="SimVision waveform: CPU memory reads and data SRAM writes"><img src="RISCV_Wave_1.jpg" alt="SimVision waveform of memory traffic" loading="lazy"></button>
+          <button data-src="RISCV_Wave_2.jpg" data-cap="SimVision waveform: read handshake between the CPU and memory"><img src="RISCV_Wave_2.jpg" alt="SimVision waveform of read handshake" loading="lazy"></button>
+          <button data-src="RISCV_Wave_3.jpg" data-cap="SimVision waveform: CPU active and halt signals"><img src="RISCV_Wave_3.jpg" alt="SimVision waveform of CPU control signals" loading="lazy"></button>
+        </div>
+      </div>
+    </article>
 
-        function changeImage(direction) {
-            if (projectImages.length === 0) return;
-            
-            currentImageIndex += direction;
-            if (currentImageIndex < 0) {
-                currentImageIndex = projectImages.length - 1;
-            } else if (currentImageIndex >= projectImages.length) {
-                currentImageIndex = 0;
-            }
-            updateLightboxImage();
-        }
+    <article class="proj" data-layer="sw">
+      <div class="side">
+        <span class="bar hatch"></span>
+        <span class="kind">Software</span>
+        <span class="when">Apr 2025 – present</span>
+        <img class="logo" src="Medlo_Logo.jpeg" alt="Medlo logo">
+      </div>
+      <div class="body">
+        <h3>Medlo, a digital medical record platform</h3>
+        <p>A full-stack client–server platform for medical records, with separate portals for patients, doctors, and hospital administrators.</p>
+        <ul>
+          <li>Built the backend with FastAPI and PostgreSQL.</li>
+          <li>Built a React frontend with role-specific dashboards for secure login, appointment scheduling, hospital inventory tracking, and visit analytics.</li>
+          <li>Connected the database, API, and frontend so records are easier to reach and manage across a hospital.</li>
+        </ul>
+        <div class="tools"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>TypeScript</span><span>React</span></div>
+        <div class="shots" data-set="medlo">
+          <button data-src="Landing_Page.jpeg" data-cap="Medlo landing page"><img src="Landing_Page.jpeg" alt="Medlo landing page" loading="lazy"></button>
+          <button data-src="Sign_in_Portal.jpeg" data-cap="Sign-in portal"><img src="Sign_in_Portal.jpeg" alt="Medlo sign-in portal" loading="lazy"></button>
+          <button data-src="Patient_Portal.jpeg" data-cap="Patient portal"><img src="Patient_Portal.jpeg" alt="Medlo patient portal" loading="lazy"></button>
+          <button data-src="Doctor_Portal.jpeg" data-cap="Doctor portal"><img src="Doctor_Portal.jpeg" alt="Medlo doctor portal" loading="lazy"></button>
+          <button data-src="Hospital_Admin_Portal.jpeg" data-cap="Hospital admin portal"><img src="Hospital_Admin_Portal.jpeg" alt="Medlo hospital admin portal" loading="lazy"></button>
+          <button data-src="Medlo_1.JPG" data-cap="Medlo"><img src="Medlo_1.JPG" alt="Medlo project photo 1" loading="lazy"></button>
+          <button data-src="Medlo_2.JPG" data-cap="Medlo"><img src="Medlo_2.JPG" alt="Medlo project photo 2" loading="lazy"></button>
+          <button data-src="Medlo_3.JPG" data-cap="Medlo"><img src="Medlo_3.JPG" alt="Medlo project photo 3" loading="lazy"></button>
+        </div>
+      </div>
+    </article>
 
-        // Close lightbox on background click
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
-        });
+    <article class="proj" data-layer="me">
+      <div class="side">
+        <span class="bar hatch"></span>
+        <span class="kind">Mechanical</span>
+        <span class="when">Mar 2025</span>
+      </div>
+      <div class="body">
+        <h3>Four-cylinder engine: CAD design and assembly</h3>
+        <p>A four-cylinder engine I modeled in Autodesk Inventor at Georgia State University, from single parts to a final assembly with working motion.</p>
+        <ul>
+          <li><b>Part modeling.</b> Built the piston, crankshaft, connecting rod, rod cap, piston ring, and piston pin from engineering drawings.</li>
+          <li><b>Assembly.</b> Combined them into piston and connecting rod sub-assemblies, then a full engine assembly that moves correctly.</li>
+          <li><b>Thermal analysis.</b> Tested the piston under combustion heat to evaluate its thermal performance.</li>
+          <li><b>Documentation.</b> Produced detailed engineering drawings for each part and assembly.</li>
+        </ul>
+        <div class="tools"><span>Autodesk Inventor</span><span>3D CAD</span><span>Thermal analysis</span></div>
+      </div>
+    </article>
 
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (lightbox.classList.contains('active')) {
-                if (e.key === 'Escape') {
-                    closeLightbox();
-                } else if (e.key === 'ArrowLeft') {
-                    changeImage(-1);
-                } else if (e.key === 'ArrowRight') {
-                    changeImage(1);
-                }
-            }
-        });
+    <article class="proj" data-layer="cm">
+      <div class="side">
+        <span class="bar hatch"></span>
+        <span class="kind">Community</span>
+        <span class="when">Mar 2025 – present</span>
+        <img class="logo" src="Egnaw_Logo.JPG" alt="Egnaw Le Egnaw Foundation logo">
+      </div>
+      <div class="body">
+        <h3>Egnaw Le Egnaw (Us for Us) Foundation</h3>
+        <p>A nonprofit I co-founded to support under-resourced rural schools in Ethiopia, including students affected by the civil conflict in the north.</p>
+        <ul>
+          <li>Raised more than $6,350 in 2025–2026 through GoFundMe and local bank donations.</li>
+          <li>Renovated four classrooms and delivered 272 textbooks, computers, and Wi-Fi to partner schools.</li>
+          <li>Partner schools saw a 14% rise in exam pass rates.</li>
+          <li>Led clothing drives from Addis Ababa to children in conflict-affected regions.</li>
+        </ul>
+        <p><a class="ext" href="https://www.gofundme.com/f/support-ethiopian-kids-with-essential-school-supplies" target="_blank" rel="noopener">View the GoFundMe campaign</a></p>
+        <div class="shots" data-set="egnaw">
+          <button data-src="Gofundme_Page_Picture.jpeg" data-cap="GoFundMe campaign"><img src="Gofundme_Page_Picture.jpeg" alt="Egnaw GoFundMe campaign" loading="lazy"></button>
+          <button data-src="Egnaw_1.JPG" data-cap="Egnaw Le Egnaw Foundation"><img src="Egnaw_1.JPG" alt="Egnaw Le Egnaw photo 1" loading="lazy"></button>
+          <button data-src="Egnaw_2.JPG" data-cap="Egnaw Le Egnaw Foundation"><img src="Egnaw_2.JPG" alt="Egnaw Le Egnaw photo 2" loading="lazy"></button>
+          <button data-src="Egnaw_4.JPG" data-cap="Egnaw Le Egnaw Foundation"><img src="Egnaw_4.JPG" alt="Egnaw Le Egnaw photo 3" loading="lazy"></button>
+          <button data-src="Egnaw_5.JPG" data-cap="Egnaw Le Egnaw Foundation"><img src="Egnaw_5.JPG" alt="Egnaw Le Egnaw photo 4" loading="lazy"></button>
+          <button data-src="Egnaw_6.jpeg" data-cap="Egnaw Le Egnaw Foundation"><img src="Egnaw_6.jpeg" alt="Egnaw Le Egnaw photo 5" loading="lazy"></button>
+          <button data-src="Egnaw_7.jpeg" data-cap="Egnaw Le Egnaw Foundation"><img src="Egnaw_7.jpeg" alt="Egnaw Le Egnaw photo 6" loading="lazy"></button>
+        </div>
+      </div>
+    </article>
 
-        // Character count for message
-        const messageTextarea = document.getElementById('message');
-        const charCount = document.getElementById('charCount');
+    <article class="proj" data-layer="sw">
+      <div class="side">
+        <span class="bar hatch"></span>
+        <span class="kind">Software</span>
+        <span class="when">Sep – Nov 2025</span>
+        <img class="logo" src="Fabric_Fingerprint_Logo.jpeg" alt="Fabric Fingerprint logo">
+      </div>
+      <div class="body">
+        <h3>Fabric Fingerprint</h3>
+        <p>A sourcing platform that connects fashion designers with verified, sustainable fabric suppliers, built with a team of four.</p>
+        <ul>
+          <li>Built a working demo with designer-to-fabric matching, supplier verification, and automatic translation.</li>
+          <li>Presented at the 2025 Perimeter College Innovation Challenge.</li>
+        </ul>
+        <div class="tools"><span>Python</span><span>TypeScript</span><span>Node.js</span><span>Git</span></div>
+        <div class="shots" data-set="fabric">
+          <button data-src="Searching_Option.jpeg" data-cap="Fabric search"><img src="Searching_Option.jpeg" alt="Fabric Fingerprint search screen" loading="lazy"></button>
+          <button data-src="Fabric_1.PNG" data-cap="Fabric Fingerprint presentation"><img src="Fabric_1.PNG" alt="Fabric Fingerprint slide 1" loading="lazy"></button>
+          <button data-src="Fabric_2.PNG" data-cap="Fabric Fingerprint presentation"><img src="Fabric_2.PNG" alt="Fabric Fingerprint slide 2" loading="lazy"></button>
+          <button data-src="Fabric_3.PNG" data-cap="Fabric Fingerprint presentation"><img src="Fabric_3.PNG" alt="Fabric Fingerprint slide 3" loading="lazy"></button>
+        </div>
+      </div>
+    </article>
 
-        messageTextarea.addEventListener('input', () => {
-            charCount.textContent = messageTextarea.value.length;
-        });
+    <p class="empty" id="empty" hidden>All layers are off. Turn one on above to see projects.</p>
 
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            e.target.reset();
-            charCount.textContent = '0';
-        });
+    <div class="more">
+      <h3>Smaller builds</h3>
+      <dl>
+        <div><dt>Micromouse firmware</dt><dd>C/C++ flood-fill maze solver with PID motor control, encoder feedback, and IR wall sensing. RoboJackets, 2026.</dd></div>
+        <div><dt>FPGA access controller</dt><dd>A password lock built from SystemVerilog FSMs on an Intel DE10-Standard board, verified in simulation and on hardware. 2026.</dd></div>
+        <div><dt>Obstacle-aware robot car</dt><dd>A 4WD Arduino car that scans 180° with an ultrasonic sensor and steers around obstacles. Isolating motor noise cut reset errors by 38%. 2025.</dd></div>
+      </dl>
+    </div>
+  </section>
 
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul class="xp">
+      <li><span class="d">Aug 2026 – present</span><div><b>Digital Design &amp; Verification Engineer, Silicon Jackets</b><p>Designed, verified, and laid out an RV32I RISC-V CPU in SkyWater 130 nm.</p></div></li>
+      <li><span class="d">Aug 2026 – present</span><div><b>Firmware &amp; Electrical Engineer, RoboJackets</b><p>Embedded firmware and sensor and motor-driver integration for an autonomous Micromouse.</p></div></li>
+      <li><span class="d">Aug 2026 – present</span><div><b>UX Researcher, Global Assistive Technology Innovation VIP</b><p>Interviewed stakeholders in the U.S. and Rwanda and turned their needs into requirements for a collaboration platform.</p></div></li>
+      <li><span class="d">Dec 2025 – Jan 2026</span><div><b>Manufacturing &amp; Process Improvement Intern, Al-Nur Industrial Group, Addis Ababa</b><p>Cut cable packaging handling time by 6 seconds per roll and built a QR-code verification system against counterfeit cables.</p></div></li>
+    </ul>
+  </section>
+
+  <section id="resume">
+    <h2>Resume</h2>
+    <div class="resume-frame">
+      <iframe src="Abdulhafiz_Muzyin_Resume.pdf#view=FitH" title="Resume of Abdulhafiz Muzyin"></iframe>
+    </div>
+    <div class="actions"><a class="btn solid" href="Abdulhafiz_Muzyin_Resume.pdf" download>Download resume</a><a class="btn line" href="Abdulhafiz_Muzyin_Resume.pdf" target="_blank" rel="noopener">Open in a new tab</a></div>
+  </section>
+
+  <section id="contact">
+    <h2>Get in touch</h2>
+    <div class="contact">
+      <div>
+        <p style="max-width:var(--measure)">I'm happy to talk about internships, hardware projects, or the foundation. Email is the fastest way to reach me.</p>
+        <ul class="links">
+          <li><a href="mailto:amuzyin3@gatech.edu">amuzyin3@gatech.edu</a></li>
+          <li><a href="https://www.linkedin.com/in/amuzyin" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/amuzyin1" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+      <form id="contactForm">
+        <label class="f">Your name<input type="text" name="name" required autocomplete="name"></label>
+        <label class="f">Your email<input type="email" name="email" required autocomplete="email"></label>
+        <label class="f">Message<textarea name="message" required maxlength="1000"></textarea><span class="hint">This opens your email app with the message filled in.</span></label>
+        <button class="btn solid" type="submit">Write email</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>© 2026 Abdulhafiz Muzyin</footer>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="x" type="button" aria-label="Close">×</button>
+  <button class="prev" type="button" aria-label="Previous image">‹</button>
+  <button class="next" type="button" aria-label="Next image">›</button>
+  <figure><img id="lbImg" src="" alt=""><figcaption id="lbCap"></figcaption></figure>
+</div>
+
+<script>
+// Layer toggles
+const boxes = document.querySelectorAll('.layers input');
+const projects = document.querySelectorAll('.proj');
+function applyLayers(){
+  const on = new Set([...boxes].filter(b => b.checked).map(b => b.value));
+  let shown = 0;
+  projects.forEach(p => { const v = on.has(p.dataset.layer); p.hidden = !v; if (v) shown++; });
+  document.getElementById('empty').hidden = shown > 0;
+}
+boxes.forEach(b => b.addEventListener('change', applyLayers));
+
+// Lightbox, scoped to one project's images
+const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
+let set = [], idx = 0, opener = null;
+function show(){ const b = set[idx]; lbImg.src = b.dataset.src; lbImg.alt = b.querySelector('img').alt; lbCap.textContent = b.dataset.cap || ''; }
+function step(d){ idx = (idx + d + set.length) % set.length; show(); }
+function closeLb(){ lb.classList.remove('on'); document.body.style.overflow = ''; if (opener) opener.focus(); }
+document.querySelectorAll('.shots').forEach(group => {
+  const items = [...group.querySelectorAll('button')];
+  items.forEach((b, i) => b.addEventListener('click', () => {
+    set = items; idx = i; opener = b; show();
+    lb.classList.add('on'); document.body.style.overflow = 'hidden';
+    lb.querySelector('.x').focus();
+  }));
+});
+lb.querySelector('.x').addEventListener('click', closeLb);
+lb.querySelector('.prev').addEventListener('click', () => step(-1));
+lb.querySelector('.next').addEventListener('click', () => step(1));
+lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('on')) return;
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowLeft') step(-1);
+  if (e.key === 'ArrowRight') step(1);
+});
+
+// Contact form opens the visitor's email app
+document.getElementById('contactForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target;
+  const subject = encodeURIComponent('Message from ' + f.name.value + ' via your website');
+  const body = encodeURIComponent(f.message.value + '\n\n' + f.name.value + '\n' + f.email.value);
+  window.location.href = 'mailto:amuzyin3@gatech.edu?subject=' + subject + '&body=' + body;
+});
+</script>
 </body>
 </html>
