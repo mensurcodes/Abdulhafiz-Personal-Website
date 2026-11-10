@@ -282,6 +282,36 @@ footer{margin-top:5rem;padding:2rem 0;border-top:1px solid var(--rule);color:var
       </div>
     </article>
 
+    <article class="proj" data-layer="hw">
+      <div class="side">
+        <span class="bar hatch"></span>
+        <span class="kind">Hardware</span>
+        <span class="when">2025</span>
+      </div>
+      <div class="body">
+        <h3>Arduino obstacle-avoiding car</h3>
+        <p>A four-wheel-drive autonomous robot that scans the space in front of it, finds a clear path, and drives around obstacles on its own.</p>
+        <ul>
+          <li><b>Sensing.</b> Mounted an HC-SR04 ultrasonic sensor on a servo so the car sweeps 180° to scan for obstacles.</li>
+          <li><b>Avoidance.</b> Programmed it in C++ to detect anything within 20 cm, stop, and turn toward the clearest direction.</li>
+          <li><b>Motor control.</b> Drove the four motors through an L298N H-bridge, using PWM to set speed.</li>
+          <li><b>Power.</b> Gave the motors and the Arduino separate power supplies, isolating motor noise from the controller and cutting reset errors by 38%.</li>
+        </ul>
+        <div class="tools"><span>C++</span><span>Arduino Uno</span><span>HC-SR04</span><span>Servo</span><span>L298N</span><span>PWM</span></div>
+        <div class="shots" data-set="car">
+          <button data-src="Car_Finished.jpg" data-cap="The finished car"><img src="Car_Finished.jpg" alt="Finished obstacle-avoiding car" loading="lazy"></button>
+          <button data-src="Car_Wiring.jpg" data-cap="Motor driver and wiring on the chassis"><img src="Car_Wiring.jpg" alt="Motor driver wiring on the car chassis" loading="lazy"></button>
+          <button data-src="Car_Driver.jpg" data-cap="Motor driver shield close up"><img src="Car_Driver.jpg" alt="Motor driver shield close up" loading="lazy"></button>
+          <button data-src="Car_Parts.jpg" data-cap="Parts before assembly"><img src="Car_Parts.jpg" alt="Car parts laid out before assembly" loading="lazy"></button>
+          <button data-src="Car_Chassis_CAD.jpg" data-cap="Chassis plate design"><img src="Car_Chassis_CAD.jpg" alt="Chassis plate design on screen" loading="lazy"></button>
+          <button data-src="Car_Build.jpg" data-cap="STEM Week Arduino workshop: building the cars"><img src="Car_Build.jpg" alt="Students assembling cars at the workshop" loading="lazy"></button>
+          <button data-src="Car_Lineup.jpg" data-cap="STEM Week Arduino workshop: cars lined up for testing"><img src="Car_Lineup.jpg" alt="Cars lined up for testing" loading="lazy"></button>
+          <button data-src="Car_Workshop.jpg" data-cap="STEM Week Arduino workshop"><img src="Car_Workshop.jpg" alt="Workshop group with their cars" loading="lazy"></button>
+          <button data-src="Car_Group.jpg" data-cap="STEM Week Arduino workshop group photo"><img src="Car_Group.jpg" alt="Workshop group photo" loading="lazy"></button>
+        </div>
+      </div>
+    </article>
+
     <article class="proj" data-layer="sw">
       <div class="side">
         <span class="bar hatch"></span>
@@ -390,7 +420,6 @@ footer{margin-top:5rem;padding:2rem 0;border-top:1px solid var(--rule);color:var
       <dl>
         <div><dt>Micromouse firmware</dt><dd>C/C++ flood-fill maze solver with PID motor control, encoder feedback, and IR wall sensing. RoboJackets, 2026.</dd></div>
         <div><dt>FPGA access controller</dt><dd>A password lock built from SystemVerilog FSMs on an Intel DE10-Standard board, verified in simulation and on hardware. 2026.</dd></div>
-        <div><dt>Obstacle-aware robot car</dt><dd>A 4WD Arduino car that scans 180° with an ultrasonic sensor and steers around obstacles. Isolating motor noise cut reset errors by 38%. 2025.</dd></div>
       </dl>
     </div>
   </section>
